@@ -6,9 +6,12 @@
   "mixinextras": {
     "minVersion": "0.5.0"
   },
+  "mixinsquared-adjuster": [
+    "com.example.mod.YourModMixinAnnotationAdjuster"
+  ],
   "client": [
     "PlayerSleepMixin",
-    "NoStomachGrownSFX"
+    "NoStomachGrowlSFX"
   ],
   "mixins": [
     "Farlands",
@@ -16,8 +19,7 @@
     "PlayerWakeUpMixin",
     "SheepEatTrueEndGrassMixin",
     "StopSprintingInBTDMixin",
-    "EntityAccessor",
-    "NoStomachGrowlSFX"
+    "EntityAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
