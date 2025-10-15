@@ -16,7 +16,8 @@
     "PlayerWakeUpMixin",
     "SheepEatTrueEndGrassMixin",
     "StopSprintingInBTDMixin",
-    "EntityAccessor"
+    "EntityAccessor",
+    "NoStomachGrowlSFX"
   ],
   "injectors": {
     "defaultRequire": 1
