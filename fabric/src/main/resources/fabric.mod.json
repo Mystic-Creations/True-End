@@ -3,13 +3,14 @@
   "id": "true_end",
   "version": "${version}",
   "name": "True End",
-  "description": "f",
+  "description": "Remember the end poem? Wake up, Player.",
   "authors": [
-    "justmili",
-    "eetgeenappels"
+    "Mystic Creations Team"
   ],
   "contact": {
-    "homepage": ""
+    "homepage": "https://modrinth.com/mod/true_end",
+    "sources": "https://github.com/Mystic-Creations/True-End",
+    "issues": "https://github.com/Mystic-Creations/True-End"
   },
   "license": "MIT",
   "icon": "icon.png",

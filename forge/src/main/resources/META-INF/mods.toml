@@ -1,12 +1,13 @@
 modLoader = "javafml"
 loaderVersion = "[47,)"
-#issueTrackerURL = ""
+issueTrackerURL = "https://github.com/Mystic-Creations/True-End/issues"
 license = "MIT"
 
 [[mods]]
 modId = "true_end"
 version = "${version}"
 displayName = "True End"
+displayURL = "https://modrinth.com/mod/true_end"
 authors = "Mystic Creations Team"
 description = '''
 
