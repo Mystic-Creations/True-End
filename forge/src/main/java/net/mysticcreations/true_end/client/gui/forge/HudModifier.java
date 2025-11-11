@@ -2,7 +2,6 @@ package net.mysticcreations.true_end.client.gui.forge;
 
 import dev.architectury.platform.Platform;
 import mod.adrenix.nostalgic.tweak.config.CandyTweak;
-import net.mysticcreations.true_end.init.TEDimKeys;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
@@ -16,6 +15,8 @@ import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import static net.mysticcreations.true_end.init.TEDimKeys.BTD;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT)
 public class HudModifier {
@@ -31,39 +32,65 @@ public class HudModifier {
         GuiGraphics gui = event.getGuiGraphics();
         float pt = event.getPartialTick();
 
-        boolean inBTD = player.level().dimension().equals(TEDimKeys.BTD);
+        boolean inBTD = player.level().dimension().equals(BTD);
 
         if (inBTD) {
-            boolean jumpBarActive;
-            if (player.getVehicle() instanceof AbstractHorse horse && horse.isSaddled()) {
-                jumpBarActive = true;
-            } else {
-                jumpBarActive = false;
-            }
-            int horseOffset = jumpBarActive ? 6 : 0;
-            int fullscreenOffset = 1; //kinda inefficient, but at least we know what this does
-            int yOffset = horseOffset - fullscreenOffset;
-
             int w = mc.getWindow().getGuiScaledWidth();
             int h = mc.getWindow().getGuiScaledHeight();
+            int fullscreenOffset;
+            int horseBar;
+            int armorW;
+            int armorH;
+            int playerHpH;
+            int airLvlW;
+            int airLvlH;
+            int mountHpH;
+
+            if (!Platform.isModLoaded("kilt")) {
+                fullscreenOffset = 1;
+                horseBar = 7;
+                armorW = 200;
+                armorH = 16;
+                playerHpH = 6;
+                airLvlW = 202;
+                airLvlH = 3;
+                mountHpH = 3;
+            } else {
+                fullscreenOffset = 1;
+                horseBar = 7;
+                armorW = 202;
+                armorH = 6;
+                playerHpH = 16;
+                airLvlW = 202;
+                airLvlH = 3;
+                mountHpH = 3;
+            }
+            int horseBarOffset = player.getVehicle() instanceof AbstractHorse horse && horse.isSaddled() ? horseBar : 0;
+            int yOffset = horseBarOffset - fullscreenOffset;
 
             if (id.equals(VanillaGuiOverlay.FOOD_LEVEL.id())) event.setCanceled(true);
             if (id.equals(VanillaGuiOverlay.EXPERIENCE_BAR.id())) event.setCanceled(true);
             if (id.equals(VanillaGuiOverlay.ARMOR_LEVEL.id())) {
                 event.setCanceled(true);
-                overlay.render((ForgeGui) mc.gui, gui, pt, w + 200, h + 16 - yOffset);
+                overlay.render((ForgeGui) mc.gui, gui, pt, w + armorW, h + armorH - yOffset);
             }
             if (id.equals(VanillaGuiOverlay.PLAYER_HEALTH.id())) {
                 event.setCanceled(true);
-                overlay.render((ForgeGui) mc.gui, gui, pt, w, h + 6 - yOffset);
+                overlay.render((ForgeGui) mc.gui, gui, pt, w, h + playerHpH - yOffset);
             }
             if (id.equals(VanillaGuiOverlay.AIR_LEVEL.id())) {
                 event.setCanceled(true);
-                overlay.render((ForgeGui) mc.gui, gui, pt, w - 202, h - 3 - yOffset);
+                overlay.render((ForgeGui) mc.gui, gui, pt, w - airLvlW, h - airLvlH - yOffset);
             }
             if (id.equals(VanillaGuiOverlay.MOUNT_HEALTH.id())) {
                 event.setCanceled(true);
-                overlay.render((ForgeGui) mc.gui, gui, pt, w, h - 5 - yOffset);
+                if (player.getArmorValue() > 0) {
+                    //Armor on
+                    overlay.render((ForgeGui) mc.gui, gui, pt, w - 2, h - mountHpH - yOffset);
+                } else {
+                    //Armor off
+                    overlay.render((ForgeGui) mc.gui, gui, pt, w - 2, h - mountHpH - yOffset + 7);
+                }
             }
         }
         if (Platform.isModLoaded("nostalgic_tweaks")) {
@@ -72,9 +99,9 @@ public class HudModifier {
                 String path = id.getPath().toLowerCase();
                 if (!("nostalgic_tweaks".equals(ns))) return;
                 if (path.contains("stamina")) event.setCanceled(true);
-                CandyTweak.OLD_VERSION_OVERLAY.setCacheAndDiskThenSave(false);
+                if (CandyTweak.OLD_VERSION_OVERLAY.get()) CandyTweak.OLD_VERSION_OVERLAY.setCacheAndDiskThenSave(false);
             } else {
-                CandyTweak.OLD_VERSION_OVERLAY.setCacheAndDiskThenSave(true);
+                if (!CandyTweak.OLD_VERSION_OVERLAY.get()) CandyTweak.OLD_VERSION_OVERLAY.setCacheAndDiskThenSave(true);
             }
         }
     }
