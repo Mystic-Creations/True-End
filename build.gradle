@@ -54,6 +54,9 @@ subprojects {
         // Mirror
         maven { url = "https://maven.enjarai.dev/mirrors" }
 
+        maven { url 'https://maven.wispforest.io/releases' }
+        maven { url 'https://maven.su5ed.dev/releases' }
+        maven { url 'https://maven.fabricmc.net' }
 
     }
 

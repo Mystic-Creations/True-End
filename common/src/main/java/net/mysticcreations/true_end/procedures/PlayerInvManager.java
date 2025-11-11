@@ -120,8 +120,6 @@ public class PlayerInvManager {
         if (Platform.isForge()) {
             if (Platform.isModLoaded("curios")) {
                 saveCuriosSlots(root, player);
-            } else if (Platform.isModLoaded("trinkets")) {
-
             }
         }
     }

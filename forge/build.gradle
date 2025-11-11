@@ -53,7 +53,11 @@ dependencies {
     shadowBundle project(path: ':common', configuration: 'transformProductionForge')
 
     compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:0.3.7-beta.1"))
-    implementation(include("com.github.bawnorton.mixinsquared:mixinsquared-forge:0.3.7-beta.1"))\
+    implementation(include("com.github.bawnorton.mixinsquared:mixinsquared-forge:0.3.7-beta.1"))
+
+
+
+    modImplementation("io.wispforest:accessories-neoforge:$accesories_version")
 }
 
 processResources {
