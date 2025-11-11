@@ -37,34 +37,16 @@ public class HudModifier {
         if (inBTD) {
             int w = mc.getWindow().getGuiScaledWidth();
             int h = mc.getWindow().getGuiScaledHeight();
-            int fullscreenOffset;
-            int horseBar;
-            int armorW;
-            int armorH;
-            int playerHpH;
-            int airLvlW;
-            int airLvlH;
-            int mountHpH;
 
-            if (!Platform.isModLoaded("kilt")) {
-                fullscreenOffset = 1;
-                horseBar = 7;
-                armorW = 200;
-                armorH = 16;
-                playerHpH = 6;
-                airLvlW = 202;
-                airLvlH = 3;
-                mountHpH = 3;
-            } else {
-                fullscreenOffset = 1;
-                horseBar = 7;
-                armorW = 202;
-                armorH = 6;
-                playerHpH = 16;
-                airLvlW = 202;
-                airLvlH = 3;
-                mountHpH = 3;
-            }
+            int fullscreenOffset = 1;
+            int horseBar = 7;
+            int armorW = 202;
+            int armorH = 6;
+            int playerHpH = 16;
+            int airLvlW = 202;
+            int airLvlH = 3;
+            int mountHpH = 3;
+
             int horseBarOffset = player.getVehicle() instanceof AbstractHorse horse && horse.isSaddled() ? horseBar : 0;
             int yOffset = horseBarOffset - fullscreenOffset;
 
