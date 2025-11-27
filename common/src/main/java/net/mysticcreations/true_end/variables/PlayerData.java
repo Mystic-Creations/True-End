@@ -8,6 +8,7 @@ public class PlayerData extends SavedData {
     public static final String ID = "true_end:player_vars";
 
     private boolean beenBeyond = false;
+    private boolean hasLeftBTD = false;
     private int seepingRealityTime = 0;
 
     public static WorldData create() {
@@ -17,12 +18,14 @@ public class PlayerData extends SavedData {
     public static PlayerData load(CompoundTag tag) {
         PlayerData data = new PlayerData();
         data.beenBeyond = tag.getBoolean("beenBeyond");
+        data.hasLeftBTD = tag.getBoolean("hasLeftBTD");
         return data;
     }
 
     @Override
     public CompoundTag save(CompoundTag tag) {
         tag.putBoolean("beenBeyond", beenBeyond);
+        tag.putBoolean("hasLeftBTD", hasLeftBTD);
         return tag;
     }
 
@@ -41,6 +44,13 @@ public class PlayerData extends SavedData {
 
     public void setSeepingRealityTime(int seepingRealityTime) {
         this.seepingRealityTime = seepingRealityTime;
+        setDirty();
+    }
+
+    public boolean getHasLeftBTD() {return hasLeftBTD;}
+
+    public void setHasLeftBTD(boolean hasLeftBTD) {
+        this.hasLeftBTD = hasLeftBTD;
         setDirty();
     }
 
