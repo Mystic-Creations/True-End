@@ -18,6 +18,6 @@ public class BeyondTheDream extends DimensionSpecialEffects {
 
     @Override
     public boolean isFoggyAt(int x, int y) {
-        return TEConfig.fogToggleClient;
+        return TEConfig.showFogClient;
     }
 }

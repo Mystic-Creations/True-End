@@ -1,5 +1,6 @@
 package net.mysticcreations.true_end.procedures.events;
 
+import dev.architectury.event.EventResult;
 import dev.architectury.platform.Platform;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
@@ -22,9 +23,9 @@ import static net.mysticcreations.true_end.procedures.randomevents.TimeChange.NI
 
 public class ChatReplies {
     //Detection & Util
-    public static void onChat(Player player, Component component) {
-        if (!TEConfig.doChatReplies) return;
-        if (!(player instanceof  ServerPlayer serverPlayer)) return;
+    public static EventResult onChat(Player player, Component component) {
+        if (!TEConfig.doChatReplies) return EventResult.pass();
+        if (!(player instanceof  ServerPlayer serverPlayer)) return EventResult.pass();
         LevelAccessor world = serverPlayer.serverLevel();
         MinecraftServer server = player.getServer();
 
@@ -32,6 +33,7 @@ public class ChatReplies {
             String msg = component.getString().toLowerCase(Locale.ROOT).trim().replaceAll("[!?.-]+$", "");
             hardcodedReplies(world, msg, serverPlayer);
         });
+        return EventResult.pass();
     }
     private static void sendChatReply(LevelAccessor world, String msg, Integer delay) {
         if (!world.isClientSide() && world.getServer() != null) {

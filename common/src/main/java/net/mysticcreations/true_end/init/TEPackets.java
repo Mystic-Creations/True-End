@@ -21,7 +21,7 @@ public class TEPackets {
         });
 
         NetworkManager.registerReceiver(NetworkManager.Side.S2C, FOG_TOGGLE, (buf, context) -> {
-            TEConfig.fogToggleClient = buf.readBoolean();
+            TEConfig.showFogClient = buf.readBoolean();
         });
 
     }
