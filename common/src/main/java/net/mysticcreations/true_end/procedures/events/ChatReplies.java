@@ -1,33 +1,37 @@
 package net.mysticcreations.true_end.procedures.events;
 
-import dev.architectury.event.EventResult;
+import dev.architectury.platform.Platform;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
 import net.mysticcreations.true_end.TrueEndCommon;
 import net.mysticcreations.true_end.config.TEConfig;
-import net.mysticcreations.true_end.init.TEDimKeys;
-import net.mysticcreations.true_end.procedures.randomevents.TimeChange;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.LevelAccessor;
-
+import net.mysticcreations.true_end.init.TESounds;
 import java.util.Locale;
 import java.util.Random;
+import static net.mysticcreations.true_end.init.TEDimKeys.BTD;
+import static net.mysticcreations.true_end.procedures.randomevents.TimeChange.DAY;
+import static net.mysticcreations.true_end.procedures.randomevents.TimeChange.NIGHT;
 
 public class ChatReplies {
     //Detection & Util
-    public static EventResult onChat(ServerPlayer player, Component component) {
-        if (!TEConfig.doChatReplies) return EventResult.pass();
-        LevelAccessor world = player.serverLevel();
-
+    public static void onChat(Player player, Component component) {
+        if (!TEConfig.doChatReplies) return;
+        if (!(player instanceof  ServerPlayer serverPlayer)) return;
+        LevelAccessor world = serverPlayer.serverLevel();
         MinecraftServer server = player.getServer();
+
         if (server != null) server.execute(() -> {
             String msg = component.getString().toLowerCase(Locale.ROOT).trim().replaceAll("[!?.-]+$", "");
-            hardcodedReplies(world, msg, player);
+            hardcodedReplies(world, msg, serverPlayer);
         });
-
-        return EventResult.pass();
     }
     private static void sendChatReply(LevelAccessor world, String msg, Integer delay) {
         if (!world.isClientSide() && world.getServer() != null) {
@@ -56,17 +60,19 @@ public class ChatReplies {
             case "hello", "hi" -> sendChatReply(world, "<§kUnknown§r> Hi.", delay);
             case "go away", "please go away", "leave me alone", "can you leave me alone", "can you go away", "please leave me alone"
                     -> sendChatReply(world, "<§kUnknown§r> I can't.", delay);
+            case "song", "sing" -> entitySings(world, delay, player);
+            case "i love you" -> sendChatReply(world, "<§kUnknown§r>      ?      ", delay);
+            case "voices" -> sendChatReply(world, "<§kUnknown§r> Gods.", delay);
 
             //Easter eggs
-            //case "28/09/1939", "09/28/1939" -> meetAgain(player); //Reference to "We'll meet again" by Vera Lynn, with that also Gravity Falls but also fits with the last words said by the voices in the mod
             case "null" -> sendChatReply(world, "<§kUnknown§r> I'm not Null", delay);
             case "the broken script" -> sendChatReply(world, "<§kUnknown§r> Inspiration.", delay);
-            case "zarsai", "zarsaivt", "shinhoa", "shinhoaz", "fireydude", "imfireydude" -> sendChatReply(world, "<SillyMili> <3", 30);
+            case "zarsai", "zarsaivt", "shinhoa", "shinhoaz", "fireydude", "imfireydude", "olt", "one last time", "dario" -> sendChatReply(world, "<SillyMili> <3", 30);
             default -> randomReplies(world, player);
         }
     }
     public static void randomReplies(LevelAccessor world, ServerPlayer player) {
-        if (player.level().dimension() == TEDimKeys.BTD) return;
+        if (player.level().dimension() == BTD) return;
         if (!(Math.random() < (TEConfig.randomEventChance)/48)) return;
         int delay = 15+(int)(Math.random()*46);
         String[] messages = {
@@ -85,7 +91,7 @@ public class ChatReplies {
         ServerLevel world = (ServerLevel) player.level();
         int delay = (int)((Math.random()*50)+15);
         long time = world.getGameTime() % 24000;
-        boolean isDay = time >= TimeChange.DAY && time < TimeChange.NIGHT;
+        boolean isDay = time >= DAY && time < NIGHT;
         if (!isDay) {
             sendChatReply(world, "<§kUnknown§r> Sleep.", delay);
         } else {
@@ -108,30 +114,16 @@ public class ChatReplies {
             });
         });
     }
-    private static void meetAgain(ServerPlayer player) {
-        ServerLevel world = (ServerLevel) player.level();
+    private static void entitySings(LevelAccessor world, Integer delay, ServerPlayer player) {
+        sendChatReply(world, "<§kUnknown§r> 4D79206661766F72697465", delay);
+        Level level = player.level();
 
-        String[] lines = {
-                "§3We'll meet again",
-                "§2Don't know where",
-                "§3Don't know when",
-                "§2But I know we'll meet again",
-                "§9Some sunny day",
-                "§3Keep smiling through",
-                "§2Just like you",
-                "§3always do",
-                "§2'Til the blue skies chase those dark clouds",
-                "§9Far away"
-        };
-        int[] delays = { 45, 40, 40, 40, 50, 55, 40, 40, 45, 50 };
-
-        int cumulative = 0;
-        for (int i = 0; i < lines.length; i++) {
-            cumulative += delays[i];
-            int idx = i;
-            TrueEndCommon.queueServerWork(cumulative, () -> {
-                sendChatReply(world, lines[idx], 0);
-            });
-        }
+        TrueEndCommon.queueServerWork(delay*2, () -> {
+            level.playSound(
+                    null,
+                    BlockPos.containing(player.getX()+8, player.getY(), player.getZ()-8),
+                    TESounds.DAISY_BELL.get(),
+                    SoundSource.NEUTRAL, 1, 1);
+        });
     }
 }
