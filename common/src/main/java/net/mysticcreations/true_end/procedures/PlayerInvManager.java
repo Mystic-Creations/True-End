@@ -205,5 +205,7 @@ public class PlayerInvManager {
             player.drop(cube, false);
         }
 
+        TEVariables.getPlayerData(player).setHasLeftBTD(true);
+
     }
 }

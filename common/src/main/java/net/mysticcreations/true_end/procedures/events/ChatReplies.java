@@ -57,7 +57,7 @@ public class ChatReplies {
                     -> sendChatReply(world, "<§kUnknown§r> I can't.", delay);
 
             //Easter eggs
-            case "28/09/1939", "09/28/1939" -> meetAgain(player); //Reference to "We'll meet again" by Vera Lynn, with that also Gravity Falls but also fits with the last words said by the voices in the mod
+            //case "28/09/1939", "09/28/1939" -> meetAgain(player); //Reference to "We'll meet again" by Vera Lynn, with that also Gravity Falls but also fits with the last words said by the voices in the mod
             case "null" -> sendChatReply(world, "<§kUnknown§r> I'm not Null", delay);
             case "the broken script" -> sendChatReply(world, "<§kUnknown§r> Inspiration.", delay);
             case "zarsai", "zarsaivt", "shinhoa", "shinhoaz", "fireydude", "imfireydude" -> sendChatReply(world, "<SillyMili> <3", 30);
