@@ -23,7 +23,7 @@ public class SoundPlayer {
         if (serverPlayer.level().dimension() != TEDimKeys.NWAD)
             if (serverPlayer.level().dimension() != Level.OVERWORLD) return;
 
-        if (!TEConfig.randomEventsToggle) return;
+        if (!TEConfig.doRandomEvents) return;
         if (!(Math.random() < TEConfig.randomEventChance)) return;
 
         double x = serverPlayer.getX();

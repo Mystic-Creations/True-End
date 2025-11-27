@@ -9,8 +9,6 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.Level;
 
-import static net.mysticcreations.true_end.init.TEDimKeys.BTD;
-
 public class PrintVars {
 
     public static void execute(Level world, ServerPlayer player, CommandSourceStack source) {
@@ -45,11 +43,11 @@ public class PrintVars {
         source.sendSystemMessage(Component.literal("btdConversationDelay: " + TEConfig.btdConversationDelay));
         source.sendSystemMessage(Component.literal("randomEventChance: " + TEConfig.randomEventChance));
         source.sendSystemMessage(Component.literal("entitySpawnChance: " + TEConfig.entitySpawnChance));
-        source.sendSystemMessage(Component.literal("creditsToggle: " + TEConfig.creditsToggle));
+        source.sendSystemMessage(Component.literal("creditsToggle: " + TEConfig.showCredits));
         source.sendSystemMessage(Component.literal("popupsToggle: " + TEConfig.popupsToggle));
-        source.sendSystemMessage(Component.literal("fogToggle: " + TEConfig.fogToggle));
-        source.sendSystemMessage(Component.literal("daytimeChangeToggle: " + TEConfig.daytimeChangeToggle));
-        source.sendSystemMessage(Component.literal("clearDreamItems: " + TEConfig.daytimeChangeToggle));
-        source.sendSystemMessage(Component.literal("flashingLights: " + TEConfig.flashingLights));
+        source.sendSystemMessage(Component.literal("fogToggle: " + TEConfig.showFog));
+        source.sendSystemMessage(Component.literal("daytimeChangeToggle: " + TEConfig.doDaytimeChange));
+        source.sendSystemMessage(Component.literal("clearDreamItems: " + TEConfig.doDaytimeChange));
+        source.sendSystemMessage(Component.literal("flashingLights: " + TEConfig.doFlashingLights));
     }
 }

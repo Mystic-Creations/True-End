@@ -17,7 +17,7 @@ public class ConfigSync {
 
     public static void sendFogToggle(ServerPlayer player) {
         FriendlyByteBuf buf = new FriendlyByteBuf(Unpooled.buffer());
-        buf.writeBoolean(TEConfig.fogToggle);
+        buf.writeBoolean(TEConfig.showFog);
         NetworkManager.sendToPlayer(player, TEPackets.FOG_TOGGLE, buf);
     }
 }

@@ -17,15 +17,16 @@ public class TEConfig {
     public static double randomEventChance = 0.05;
     public static double entitySpawnChance = 0.05;
     public static int btdConversationDelay = 40;
-    public static boolean randomEventsToggle = true;
+    public static boolean doRandomEvents = true;
     public static boolean popupsToggle = true;
-    public static boolean fogToggle = true;
-    public static boolean creditsToggle = true;
-    public static boolean flashingLights = true;
-    public static boolean daytimeChangeToggle = true;
+    public static boolean showFog = true;
+    public static boolean showCredits = true;
+    public static boolean doFlashingLights = true;
+    public static boolean doDaytimeChange = true;
     public static boolean clearDreamItems = true;
+    public static boolean doChatReplies = true;
 
-    public static boolean fogToggleClient;
+    public static boolean showFogClient;
 
     public static void setup() {
         Map<String, Object> entries = TEConfig.serializer.deserialize();
@@ -34,25 +35,27 @@ public class TEConfig {
         entries.putIfAbsent("randomEventChance", 0.005d);
         entries.putIfAbsent("entitySpawnChance", 0.05d);
         entries.putIfAbsent("btdConversationDelay", 40d);
-        entries.putIfAbsent("randomEventsToggle", true);
+        entries.putIfAbsent("doRandomEvents", true);
         entries.putIfAbsent("popupsToggle", true);
-        entries.putIfAbsent("fogToggle", true);
-        entries.putIfAbsent("creditsToggle", true);
-        entries.putIfAbsent("flashingLights", true);
-        entries.putIfAbsent("daytimeChangeToggle", true);
+        entries.putIfAbsent("showFog", true);
+        entries.putIfAbsent("showCredits", true);
+        entries.putIfAbsent("doFlashingLights", true);
+        entries.putIfAbsent("doDaytimeChange", true);
         entries.putIfAbsent("clearDreamItems", true);
-        entries.putIfAbsent("nostalgicTweaksCompatability", true);
+        entries.putIfAbsent("showFogClient", true);
+        entries.putIfAbsent("doChatReplies", true);
 
         randomEventChance = (double) entries.get("randomEventChance");
         entitySpawnChance = (double) entries.get("entitySpawnChance");
         btdConversationDelay = Math.toIntExact(Math.round((double) entries.get("btdConversationDelay")));
-        randomEventsToggle = (boolean) entries.get("randomEventsToggle");
+        doRandomEvents = (boolean) entries.get("doRandomEvents");
         popupsToggle = (boolean) entries.get("popupsToggle");
-        fogToggle = (boolean) entries.get("fogToggle");
-        creditsToggle = (boolean) entries.get("creditsToggle");
-        flashingLights = (boolean) entries.get("flashingLights");
-        daytimeChangeToggle = (boolean) entries.get("daytimeChangeToggle");
+        showFog = (boolean) entries.get("showFog");
+        showCredits = (boolean) entries.get("showCredits");
+        doFlashingLights = (boolean) entries.get("doFlashingLights");
+        doDaytimeChange = (boolean) entries.get("doDaytimeChange");
         clearDreamItems = (boolean) entries.get("clearDreamItems");
+        doChatReplies = (boolean) entries.get("doChatReplies");
 
         TEConfig.entries = entries;
         serializer.serialize(TEConfig.entries);
@@ -68,12 +71,13 @@ public class TEConfig {
             case "randomEventChance" -> randomEventChance = (double)  value;
             case "entitySpawnChance" -> entitySpawnChance = (double)  value;
             case "btdConversationDelay" -> btdConversationDelay = (int) value;
-            case "creditsToggle" -> creditsToggle = (boolean) value;
-            case "fogToggle" -> fogToggle = (boolean) value;
+            case "showCredits" -> showCredits = (boolean) value;
+            case "showFog" -> showFog = (boolean) value;
             case "popupsToggle" -> popupsToggle = (boolean) value;
-            case "daytimeChangeToggle" -> daytimeChangeToggle = (boolean) value;
+            case "doDaytimeChange" -> doDaytimeChange = (boolean) value;
             case "clearDreamItems" -> clearDreamItems = (boolean) value;
-            case "flashingLights" -> flashingLights = (boolean) value;
+            case "doFlashingLights" -> doFlashingLights = (boolean) value;
+            case "doChatReplies" -> doChatReplies = (boolean) value;
             default -> TrueEndCommon.LOGGER.warn("updateConfig: unhandled key '{}'", key);
         }
     }

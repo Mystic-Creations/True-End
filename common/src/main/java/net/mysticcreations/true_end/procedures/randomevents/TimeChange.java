@@ -11,8 +11,8 @@ public class TimeChange {
     public static final int MIDNIGHT = 18000;
 
     public static void onPlayerTick(Player player) {
-        if (!TEConfig.randomEventsToggle) return;
-        if (!TEConfig.daytimeChangeToggle) return;
+        if (!TEConfig.doRandomEvents) return;
+        if (!TEConfig.doDaytimeChange) return;
         if (!(player.level() instanceof ServerLevel serverWorld)) return;
 
         long totalDays = serverWorld.getDayTime() / 24000;

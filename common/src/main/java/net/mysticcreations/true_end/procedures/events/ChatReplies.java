@@ -18,6 +18,7 @@ import java.util.Random;
 public class ChatReplies {
     //Detection & Util
     public static EventResult onChat(ServerPlayer player, Component component) {
+        if (!TEConfig.doChatReplies) return EventResult.pass();
         LevelAccessor world = player.serverLevel();
 
         MinecraftServer server = player.getServer();

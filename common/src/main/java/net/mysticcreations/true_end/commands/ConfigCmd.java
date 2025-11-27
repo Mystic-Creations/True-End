@@ -37,14 +37,14 @@ public class ConfigCmd {
                                         .executes(ctx -> handleInt(ctx.getSource(), "btdConversationDelay", IntegerArgumentType.getInteger(ctx, "value")))))
 
                         .then(Commands.literal("creditsToggle")
-                                .executes(ctx -> getConfig(ctx.getSource(), "creditsToggle", TEConfig.creditsToggle))
+                                .executes(ctx -> getConfig(ctx.getSource(), "creditsToggle", TEConfig.showCredits))
                                 .then(Commands.literal("true")
                                         .executes(ctx -> handleBoolean(ctx.getSource(), "creditsToggle", true)))
                                 .then(Commands.literal("false")
                                         .executes(ctx -> handleBoolean(ctx.getSource(), "creditsToggle", false))))
 
                         .then(Commands.literal("fogToggle")
-                                .executes(ctx -> getConfig(ctx.getSource(), "fogToggle", TEConfig.fogToggle))
+                                .executes(ctx -> getConfig(ctx.getSource(), "fogToggle", TEConfig.showFog))
                                 .then(Commands.literal("true")
                                         .executes(ctx -> {
                                             handleBoolean(ctx.getSource(), "fogToggle", true);
@@ -65,14 +65,14 @@ public class ConfigCmd {
                                         .executes(ctx -> handleBoolean(ctx.getSource(), "popupsToggle", false))))
 
                         .then(Commands.literal("flashingLights")
-                                .executes(ctx -> getConfig(ctx.getSource(), "flashingLights", TEConfig.flashingLights))
+                                .executes(ctx -> getConfig(ctx.getSource(), "flashingLights", TEConfig.doFlashingLights))
                                 .then(Commands.literal("true")
                                         .executes(ctx -> handleBoolean(ctx.getSource(), "flashingLights", true)))
                                 .then(Commands.literal("false")
                                         .executes(ctx -> handleBoolean(ctx.getSource(), "flashingLights", false))))
 
                         .then(Commands.literal("daytimeChangeToggle")
-                                .executes(ctx -> getConfig(ctx.getSource(), "daytimeChangeToggle", TEConfig.daytimeChangeToggle))
+                                .executes(ctx -> getConfig(ctx.getSource(), "daytimeChangeToggle", TEConfig.doDaytimeChange))
                                 .then(Commands.literal("true")
                                         .executes(ctx -> handleBoolean(ctx.getSource(), "daytimeChangeToggle", true)))
                                 .then(Commands.literal("false")
