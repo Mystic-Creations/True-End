@@ -191,18 +191,21 @@ public class PlayerInvManager {
     public static void onDimensionChange(ServerPlayer player, ResourceKey<Level> fromDimension, ResourceKey<Level> toDimension) {
         if (!(fromDimension.equals(BTD) && toDimension.equals(Level.OVERWORLD))) return;
         if (!TEConfig.clearDreamItems) return;
+        if (TEVariables.getPlayerData(player).getHasLeftBTD()) return;
+        if (!TEVariables.getPlayerData(player).getBeenBeyond()) return;
 
-        if (TEVariables.getPlayerData(player).getBeenBeyond()) {
-            player.getInventory().clearContent();
-            clearCuriosSlots(player);
-            restoreInvWithChance(player);
+        player.getInventory().clearContent();
+        clearCuriosSlots(player);
+        restoreInvWithChance(player);
 
-            ItemStack cube = new ItemStack(TEItems.MYSTERIOUS_CUBE.get());
-            cube.setCount(1);
-            boolean added = player.getInventory().add(cube);
-            if (!added) {
-                player.drop(cube, false);
-            }
+        ItemStack cube = new ItemStack(TEItems.MYSTERIOUS_CUBE.get());
+        cube.setCount(1);
+        boolean added = player.getInventory().add(cube);
+        if (!added) {
+            player.drop(cube, false);
         }
+
+        TEVariables.getPlayerData(player).setHasLeftBTD(true);
+
     }
 }

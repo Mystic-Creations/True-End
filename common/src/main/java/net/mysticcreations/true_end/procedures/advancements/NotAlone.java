@@ -11,7 +11,7 @@ import static net.mysticcreations.true_end.init.TEDimKeys.BTD;
 public class NotAlone {
     public static void grantAdvancement(ServerPlayer player) {
         if (!((player.level().dimension()) == BTD)) return;
-        if (!TEConfig.randomEventsToggle) return;
+        if (!TEConfig.doRandomEvents) return;
         if (!(Math.random() < TEConfig.randomEventChance)) return;
 
         Advancement advancement = player.server.getAdvancements().getAdvancement(new ResourceLocation("true_end:not_alone"));

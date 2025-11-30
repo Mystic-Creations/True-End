@@ -22,7 +22,7 @@ public class MobStare {
                 updateStare(level);
                 return;
             }
-            if (TEConfig.randomEventsToggle) {
+            if (TEConfig.doRandomEvents) {
                 if (stareMap.isEmpty() && RANDOM.nextDouble() < TEConfig.randomEventChance) {
                     lastEventTick = worldTick;
                     TrueEndCommon.LOGGER.info("[MobStare] Starting stare event");

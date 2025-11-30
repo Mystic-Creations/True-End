@@ -28,7 +28,7 @@ public class UnknownSpawning {
         if (!(player.level() instanceof ServerLevel serverWorld)) return;
         if (serverWorld.getGameTime() % TICK_INTERVAL != 0) return;
         if (serverWorld.dimension() == Level.END) return;
-        if (!TEConfig.randomEventsToggle) return;
+        if (!TEConfig.doRandomEvents) return;
 
         long daysPlayed = serverWorld.getGameTime() / 24000;
         if (daysPlayed < 10) return;

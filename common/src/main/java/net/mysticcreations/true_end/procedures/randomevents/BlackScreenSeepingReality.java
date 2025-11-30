@@ -20,7 +20,7 @@ public class BlackScreenSeepingReality {
             TEVariables.getPlayerData(serverPlayer).setSeepingRealityTime(0);
             return;
         }
-        if (!TEConfig.flashingLights) return;
+        if (!TEConfig.doFlashingLights) return;
 
 
         int t = TEVariables.getPlayerData(serverPlayer).getSeepingRealityTime() + 1;

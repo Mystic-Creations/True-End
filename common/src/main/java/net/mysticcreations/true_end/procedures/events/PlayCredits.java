@@ -15,12 +15,14 @@ public class PlayCredits {
     private static boolean hasShownCreditsThisSession = false;
 
     public static void onDimensionChange(ServerPlayer player, ResourceKey<Level> fromWorld, ResourceKey<Level> toWorld) {
-        if (TEConfig.creditsToggle) { hasShownCreditsThisSession = false; } else { return; }
+        if (TEConfig.showCredits) { hasShownCreditsThisSession = false; } else { return; }
         if (hasShownCreditsThisSession) return;
 
         if (fromWorld == BTD && toWorld == Level.OVERWORLD) {
             hasShownCreditsThisSession = true;
-            TEConfig.updateConfig("creditsToggle", false);
+
+            // todo: maybe do something about this
+            //TEConfig.updateConfig("creditsToggle", false);
 
             FriendlyByteBuf buf = new FriendlyByteBuf(Unpooled.buffer());
             NetworkManager.sendToPlayer(player, TEPackets.SHOW_CREDITS_PACKET, buf);

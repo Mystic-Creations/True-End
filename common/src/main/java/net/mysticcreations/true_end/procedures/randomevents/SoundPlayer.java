@@ -1,35 +1,36 @@
 package net.mysticcreations.true_end.procedures.randomevents;
 
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.player.Player;
 import net.mysticcreations.true_end.TrueEndCommon;
 import net.mysticcreations.true_end.config.TEConfig;
 import net.mysticcreations.true_end.init.TEBlocks;
-import net.mysticcreations.true_end.init.TEDimKeys;
-import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.Level;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.BlockPos;
 
-import static net.mysticcreations.true_end.init.TEDimKeys.BTD;
 import static net.minecraft.world.level.block.Blocks.*;
+
+import static net.mysticcreations.true_end.init.TEDimKeys.NWAD;
+import static net.mysticcreations.true_end.procedures.DimSwapToBTD.BlockPosRandomX;
+import static net.mysticcreations.true_end.procedures.DimSwapToBTD.BlockPosRandomZ;
 
 public class SoundPlayer {
     public static void onPlayerTick(Player player) {
         if (!(player instanceof ServerPlayer serverPlayer)) return;
-        if (serverPlayer.level().dimension() != TEDimKeys.NWAD)
-            if (serverPlayer.level().dimension() != Level.OVERWORLD) return;
+        if (player.level().dimension() != NWAD) if (player.level().dimension() != Level.OVERWORLD) return;
 
-        if (!TEConfig.randomEventsToggle) return;
+        if (!TEConfig.doRandomEvents) return;
         if (!(Math.random() < TEConfig.randomEventChance)) return;
 
-        double x = serverPlayer.getX();
-        double y = serverPlayer.getY();
-        double z = serverPlayer.getZ();
-        Level level = serverPlayer.level();
+        double x = player.getX();
+        double y = player.getY();
+        double z = player.getZ();
+        Level level = player.level();
 
         //Sound Players
         if (groundBlock(level, x, y, z) == TEBlocks.GRASS_BLOCK.get() || groundBlock(level, x, y, z) == GRASS_BLOCK) {
@@ -53,25 +54,22 @@ public class SoundPlayer {
             if (Math.random() < 0.90) {
                 repeatSound(serverPlayer, 8, SoundEvents.GRAVEL_STEP);
             } else {
-                repeatSound(serverPlayer, 12, SoundEvents.GRAVEL_BREAK);
+                repeatSound(serverPlayer, 12,  SoundEvents.GRAVEL_BREAK);
             }
         }
         if (groundBlock(level, x, y, z) == TEBlocks.STONE.get() || groundBlock(level, x, y, z) == STONE) {
             if (Math.random() < 0.40) {
-                repeatSound(serverPlayer, 8, SoundEvents.STONE_STEP);
+                repeatSound(serverPlayer, 8,  SoundEvents.STONE_STEP);
             } else {
-                repeatSound(serverPlayer, 10, SoundEvents.STONE_BREAK);
+                repeatSound(serverPlayer, 10,  SoundEvents.STONE_BREAK);
             }
         }
         if (groundBlock(level, x, y, z) == DEEPSLATE) {
             if (Math.random() < 0.60) {
-                repeatSound(serverPlayer, 8, SoundEvents.DEEPSLATE_STEP);
+                repeatSound(serverPlayer, 8,  SoundEvents.DEEPSLATE_STEP);
             } else {
-                repeatSound(serverPlayer, 16, SoundEvents.DEEPSLATE_BREAK);
+                repeatSound(serverPlayer, 16,  SoundEvents.DEEPSLATE_BREAK);
             }
-        }
-        if ((serverPlayer.getY() < 0 || player.level().dimension() == BTD) && Math.random() < 0.00005) {
-            playSound(serverPlayer, 5, SoundEvent.createVariableRangeEvent(new ResourceLocation("true_end:daisy_bell")));
         }
     }
 
@@ -79,28 +77,10 @@ public class SoundPlayer {
         return level.getBlockState(BlockPos.containing(x, y - 0.5, z)).getBlock();
     }
 
-    private static void repeatSound(ServerPlayer player, Integer delay, SoundEvent soundEvent) {
-        int randomRepeatCount = 3 + (int) (Math.random() * ((9 - 3) + 1));
-        int soundX = 16 + (int) (Math.random() * ((48 - 16) + 1)) / 4;
+    public static void repeatSound(ServerPlayer player, Integer delay, SoundEvent soundEvent) {
+        int soundX = BlockPosRandomX / 4;
         int soundY = 1 + (int) (Math.random() * ((8 - 1) + 1));
-        int soundZ = 16 + (int) (Math.random() * ((48 - 16) + 1)) / 4;
-        Level level = player.level();
-        if (level.isClientSide()) return;
-
-        for (int index3 = 0; index3 < (randomRepeatCount - 1); index3++) {
-            TrueEndCommon.queueServerWork(delay, () -> {
-                level.playSound(null,
-                        BlockPos.containing(soundX, soundY, soundZ),
-                        soundEvent,
-                        SoundSource.NEUTRAL, 1, 1);
-            });
-        }
-    }
-
-    public static void playSound(ServerPlayer player, Integer delay, SoundEvent soundEvent) {
-        int soundX = 16 + (int) (Math.random() * ((48 - 16) + 1)) / 4;
-        int soundY = 1 + (int) (Math.random() * ((8 - 1) + 1));
-        int soundZ = 16 + (int) (Math.random() * ((48 - 16) + 1)) / 4;
+        int soundZ = BlockPosRandomZ / 4;
         Level level = player.level();
         if (level.isClientSide()) return;
 
