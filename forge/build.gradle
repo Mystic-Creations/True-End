@@ -46,8 +46,10 @@ dependencies {
     implementation(annotationProcessor("io.github.llamalad7:mixinextras-forge:0.5.0"))
     include("io.github.llamalad7:mixinextras-forge:0.5.0")
 
-    // Compile against only the API artifact
     compileOnly "top.theillusivec4.curios:curios-forge:${curios_version}:api"
+
+    runtimeOnly "top.theillusivec4.curios:curios-forge:${curios_version}"
+    //modImplementation ("top.theillusivec4.curios:curios-forge:5.4.3+1.20.1")
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionForge')
@@ -55,9 +57,8 @@ dependencies {
     compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:0.3.7-beta.1"))
     implementation(include("com.github.bawnorton.mixinsquared:mixinsquared-forge:0.3.7-beta.1"))
 
-
-
-    modImplementation("io.wispforest:accessories-neoforge:$accesories_version")
+    modImplementation ("curse.maven:accessories-938917:6201361")
+    //modImplementation("io.wispforest:accessories-neoforge:$accesories_version")
 }
 
 processResources {

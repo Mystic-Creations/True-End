@@ -6,9 +6,6 @@
   "mixinextras": {
     "minVersion": "0.5.0"
   },
-  "mixinsquared-adjuster": [
-    "com.example.mod.YourModMixinAnnotationAdjuster"
-  ],
   "client": [
     "PlayerSleepMixin",
     "NoStomachGrowlSFX"

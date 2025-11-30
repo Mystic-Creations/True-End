@@ -33,6 +33,7 @@ public abstract class GuiMixin {
             )
     )
     private int wrapVehicleHearts(Gui instance, LivingEntity vehicle, Operation<Integer> original) {
+        if (this.minecraft.player.level().dimension() != TEDimKeys.BTD) {return this.getVehicleMaxHearts(vehicle);}
         return -1;
     }
 
@@ -60,6 +61,7 @@ public abstract class GuiMixin {
             ordinal = 4     // <-- need to match the correct int local
     )
     private int modifyBubblesX(int original) {
+        if (this.minecraft.player.level().dimension() != TEDimKeys.BTD) {return original;}
         return original - 101; // shift it down 20 px, or whatever you want
     }
 
@@ -80,6 +82,9 @@ public abstract class GuiMixin {
 
     @Shadow()
     public abstract Font getFont();
+
+    @Shadow
+    protected abstract int getVehicleMaxHearts(LivingEntity vehicle);
 
     @Inject(at = @At("HEAD"), method = "render")
     public void render(GuiGraphics guiGraphics, float partialTick, CallbackInfo ci) {
