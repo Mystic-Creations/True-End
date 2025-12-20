@@ -1,23 +1,22 @@
 package net.mysticcreations.true_end.procedures.randomevents;
 
 import dev.architectury.event.EventResult;
+import net.minecraft.client.Minecraft;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
+import net.mysticcreations.true_end.config.TEConfig;
+import net.mysticcreations.true_end.variables.TEVariables;
 
 public class NoVoidDamage {
     public static boolean eventActive;
 
     public static void onPlayerJoin(ServerPlayer player) {
-        //if (!Variables.doRandomEvents) return;
-        if (Math.random() < 0.5) {
-            eventActive = true;
-        } else {
-            eventActive = false;
-        }
+        if (!TEConfig.doRandomEvents) return;
+        eventActive = Math.random() < 0.5;
     }
 
     public static EventResult onEntityDamaged(LivingEntity entity, DamageSource source, float amount) {
