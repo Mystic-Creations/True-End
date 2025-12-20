@@ -29,18 +29,6 @@ public final class TrueEndCommonClient {
         );
 
         ItemPropertiesRegistry.register(
-                TEBlocks.VOID.get().asItem(),
-                new ResourceLocation("true_end:type"),
-                (stack, world, entity, seed) -> {
-                    CompoundTag bst = stack.getTagElement("BlockStateTag");
-                    if (bst != null && "white".equals(bst.getString("type"))) {
-                        return 1.0f;
-                    }
-                    return 0.0f;
-                }
-        );
-
-        ItemPropertiesRegistry.register(
                 TEItems.DREAMERS_COMPASS.get(), new ResourceLocation("angle"),
                 (stack, world, entity, seed) -> {
 

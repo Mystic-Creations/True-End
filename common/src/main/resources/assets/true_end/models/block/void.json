@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "true_end:block/void",
+    "up": "true_end:block/void",
+    "north": "true_end:block/void",
+    "east": "true_end:block/void",
+    "south": "true_end:block/void",
+    "west": "true_end:block/void",
+    "particle": "true_end:block/void"
+  }
+}

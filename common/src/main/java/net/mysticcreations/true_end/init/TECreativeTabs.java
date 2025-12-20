@@ -49,13 +49,7 @@ public class TECreativeTabs {
                 tabData.accept(TEItems.DREAMERS_COMPASS.get());
                 tabData.accept(TEItems.MUSIC_DISK_FARLANDS.get());
                 tabData.accept(TEItems.MUSIC_DISK_NEVER_ALONE.get());
-
-                ItemStack blackVoid = new ItemStack(TEItems.VOID.get());
-                blackVoid.getOrCreateTagElement("BlockStateTag").putString("type", "black");
-                tabData.accept(blackVoid);
-                ItemStack whiteVoid = new ItemStack(TEItems.VOID.get());
-                whiteVoid.getOrCreateTagElement("BlockStateTag").putString("type", "white");
-                tabData.accept(whiteVoid);
+                tabData.accept(TEItems.VOID.get());
             }).build());
     public static void register() {
         // Register the tab itself first
