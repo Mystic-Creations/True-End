@@ -10,9 +10,9 @@ dependencies {
 
     modImplementation "dev.architectury:architectury:$rootProject.architectury_api_version"
 
-    implementation 'com.github.Nostalgica-Reverie.Nostalgic-Tweaks:NostalgicTweaks:1.20.1-SNAPSHOT'
+    compileOnly 'com.github.Nostalgica-Reverie.Nostalgic-Tweaks:NostalgicTweaks:1.20.1-SNAPSHOT'
 
-    modImplementation("io.wispforest:accessories-common:$accesories_version")
+    //modImplementation("io.wispforest:accessories-common:$accesories_version")
 
     implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.0"))
     include("io.github.llamalad7:mixinextras-common:0.5.0")

@@ -48,7 +48,7 @@ dependencies {
 
     include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.7-beta.1")))
 
-    modImplementation("io.wispforest:accessories-fabric:$accesories_version")
+    //modImplementation("io.wispforest:accessories-fabric:$accesories_version")
 }
 
 processResources {

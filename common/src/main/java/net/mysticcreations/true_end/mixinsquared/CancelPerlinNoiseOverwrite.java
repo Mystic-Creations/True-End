@@ -1,4 +1,4 @@
-package net.mysticcreations.true_end.mixin;
+package net.mysticcreations.true_end.mixinsquared;
 
 import com.bawnorton.mixinsquared.api.MixinCanceller;
 import java.util.List;

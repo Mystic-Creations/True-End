@@ -1,11 +1,13 @@
 package net.mysticcreations.true_end.client;
 
 import dev.architectury.event.events.client.ClientTickEvent;
+import dev.architectury.injectables.annotations.ExpectPlatform;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.item.ItemPropertiesRegistry;
 import dev.architectury.registry.menu.MenuRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.mysticcreations.true_end.TrueEndCommon;
 import net.mysticcreations.true_end.client.renderer.BlackOverlayRenderer;
 import net.mysticcreations.true_end.client.renderer.FunnyScreenRenderer;
 import net.mysticcreations.true_end.client.renderer.UnknownEntityRenderer;
@@ -75,6 +77,7 @@ public final class TrueEndCommonClient {
 
                     // Now convert to 0.0 - 1.0 float for the predicate
                     float angleValue = (float) (relative / 360.0);
+                    TrueEndCommon.LOGGER.info("anglevalue: {}", angleValue);
 
                     return angleValue;
                 }
