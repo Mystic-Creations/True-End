@@ -22,23 +22,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class Void extends Block {
-    public enum Type implements StringRepresentable {
-        BLACK("black"),
-        WHITE("white");
-
-        private final String name;
-        Type(String name) { this.name = name; }
-        @Override public String getSerializedName() { return name; }
-    }
-    public static final EnumProperty<Type> TYPE = EnumProperty.create("type", Type.class);
 
     public Void() {
         super(BlockBehaviour.Properties.of().sound(SoundType.EMPTY)
                 .strength(-1.0f, -1.0f)
                 .noCollission().hasPostProcess((bs, br, bp) -> true)
                 .lightLevel(s -> 1).emissiveRendering((bs, br, bp) -> true)
-        );
-        this.registerDefaultState(this.stateDefinition.any().setValue(TYPE, Type.BLACK)
         );
     }
 
@@ -47,13 +36,6 @@ public class Void extends Block {
         builder.add(TYPE);
     }
 
-    @Override
-    public @NotNull ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
-        ItemStack stack = new ItemStack(this);
-        CompoundTag bst = stack.getOrCreateTagElement("BlockStateTag");
-        bst.putString("type", state.getValue(TYPE).getSerializedName());
-        return stack;
-    }
 
     @Override
     public void appendHoverText(ItemStack stack, BlockGetter world, List<Component> tooltip, TooltipFlag flag) {
