@@ -43,19 +43,20 @@ public final class TrueEndCommonClient {
         ItemPropertiesRegistry.register(
                 TEItems.DREAMERS_COMPASS.get(), new ResourceLocation("angle"),
                 (stack, world, entity, seed) -> {
+
                     if (world == null || entity == null) {
                         return 0F;
                     }
                     CompoundTag tag = stack.getOrCreateTag();
 
-                    if (!tag.getBoolean("TargetTracked")) {
+                    if (!tag.getBoolean("LodestoneTracked")) {
                         return 0F;
                     }
 
                     BlockPos targetPos = new BlockPos(
-                            tag.getInt("TargetX"),
-                            tag.getInt("TargetY"),
-                            tag.getInt("TargetZ")
+                            tag.getInt("LodestonePosX"),
+                            tag.getInt("LodestonePosY"),
+                            tag.getInt("LodestonePosZ")
                     );
                     BlockPos playerPos = entity.blockPosition();
                     float playerYaw = entity.getYRot(); // in degrees
