@@ -78,7 +78,6 @@ public final class TrueEndCommonClient {
 
                     // Now convert to 0.0 - 1.0 float for the predicate
                     float angleValue = (float) (relative / 360.0);
-                    TrueEndCommon.LOGGER.info("anglevalue: {}", angleValue);
 
                     return angleValue;
                 }
