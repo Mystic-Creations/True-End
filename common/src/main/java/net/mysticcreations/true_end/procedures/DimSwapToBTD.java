@@ -82,6 +82,7 @@ public class DimSwapToBTD {
                         PlayerInvManager.saveInvBTD(player);
                         //PlayerInvManager.clearCuriosSlots(player);
                         if (TEConfig.clearDreamItems) player.getInventory().clearContent();
+                        player.getInventory().setChanged();
                         return;
                     }
 

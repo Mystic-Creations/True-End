@@ -2,6 +2,7 @@ package net.mysticcreations.true_end.procedures;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import dev.architectury.platform.Platform;
+import net.minecraft.network.chat.Component;
 import net.mysticcreations.true_end.config.TEConfig;
 import net.mysticcreations.true_end.init.TEItems;
 import net.mysticcreations.true_end.variables.TEVariables;
@@ -194,9 +195,24 @@ public class PlayerInvManager {
         if (TEVariables.getPlayerData(player).getHasLeftBTD()) return;
         if (!TEVariables.getPlayerData(player).getBeenBeyond()) return;
 
+
+        int pExitX = (int) player.getX();
+        int pExitY = (int) player.getY();
+        int pExitZ = (int) player.getZ();
+
         player.getInventory().clearContent();
         clearCuriosSlots(player);
         restoreInvWithChance(player);
+        
+        Level wSpawn = player.server.getLevel(Level.OVERWORLD);
+
+        player.setRespawnPosition(Level.OVERWORLD, wSpawn.getSharedSpawnPos(), wSpawn.getSharedSpawnAngle(), true, false);
+        //Teleport player to spawn
+        player.teleportTo(player.serverLevel(),
+                wSpawn.getSharedSpawnPos().getX(),
+                wSpawn.getSharedSpawnPos().getY(),
+                wSpawn.getSharedSpawnPos().getZ(),
+                player.getYRot(), player.getXRot());
 
         ItemStack cube = new ItemStack(TEItems.MYSTERIOUS_CUBE.get());
         cube.setCount(1);
@@ -204,6 +220,16 @@ public class PlayerInvManager {
         if (!added) {
             player.drop(cube, false);
         }
+
+        ItemStack paper = new ItemStack(net.minecraft.world.item.Items.PAPER);
+        paper.setCount(1);
+        paper.setHoverName(Component.literal(pExitX+"/"+pExitY+"/"+pExitZ).withStyle(s -> s.withItalic(false)));
+
+        added = player.getInventory().add(paper);
+        if (!added) {
+            player.drop(paper, false);
+        }
+
 
         TEVariables.getPlayerData(player).setHasLeftBTD(true);
 

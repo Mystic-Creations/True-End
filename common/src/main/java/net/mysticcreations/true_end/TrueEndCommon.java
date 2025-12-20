@@ -8,7 +8,6 @@ import net.mysticcreations.true_end.commands.DeveloperCmd;
 import net.mysticcreations.true_end.config.ConfigSync;
 import net.mysticcreations.true_end.config.TEConfig;
 import net.mysticcreations.true_end.init.*;
-import net.mysticcreations.true_end.init.*;
 import net.mysticcreations.true_end.procedures.DimSwapToBTD;
 import net.mysticcreations.true_end.procedures.DimSwapToNWAD;
 import net.mysticcreations.true_end.procedures.PlayerInvManager;
@@ -24,8 +23,6 @@ import net.mysticcreations.true_end.procedures.randomevents.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.mysticcreations.true_end.procedures.events.*;
-import net.mysticcreations.true_end.procedures.randomevents.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -84,10 +81,12 @@ public final class TrueEndCommon {
         PlayerEvent.PLAYER_RESPAWN.register((player, bool) -> ConfigSync.sendFogToggle(player));
         PlayerEvent.PLAYER_ADVANCEMENT.register(DimSwapToBTD::onAdvancement);
         PlayerEvent.PLAYER_JOIN.register(ConfigSync::sendFogToggle);
+        PlayerEvent.PLAYER_JOIN.register(NoVoidDamage::onPlayerJoin);
+        PlayerEvent.PLAYER_JOIN.register(NoCooldown::onPlayerJoin);
         EntityEvent.LIVING_DEATH.register(NoBtdEscape::onPlayerDeath);
         EntityEvent.LIVING_DEATH.register(WhenPigsFly::onPigFallDeath);
         EntityEvent.LIVING_DEATH.register(DimSwapToNWAD::onPlayerDeath);
-        EntityEvent.LIVING_HURT.register(NoVoidDamage::onEntityAttacked);
+        EntityEvent.LIVING_HURT.register(NoVoidDamage::onEntityDamaged);
         EntityEvent.LIVING_HURT.register(WoolDrop::onEntityAttacked);
         EntityEvent.LIVING_HURT.register(DimSwapToNWAD::onEntityAttacked);
 
@@ -100,6 +99,7 @@ public final class TrueEndCommon {
     private static class WorkItem {
         final Runnable task;
         final AtomicInteger ticksRemaining;
+
 
         WorkItem(Runnable task, int delay) {
             this.task = task;

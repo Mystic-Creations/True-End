@@ -59,7 +59,7 @@ public class ChatReplies {
             case "fuck you" -> punish(player);
             case "where am i" -> sendChatReply(world, "<§kUnknown§r> "+(int)player.getX()+"/"+(int)player.getY()+"/"+(int)player.getZ()+".", delay);
             case "where are you" -> sendChatReply(world,"<§kUnknown§r> U29tZXdoZXJlIGNsb3NlLg==", delay);
-            case "hello", "hi" -> sendChatReply(world, "<§kUnknown§r> Hi.", delay);
+            case "hello", "hi", "sup" -> sendChatReply(world, "<§kUnknown§r> Hi.", delay);
             case "go away", "please go away", "leave me alone", "can you leave me alone", "can you go away", "please leave me alone"
                     -> sendChatReply(world, "<§kUnknown§r> I can't.", delay);
             case "song", "sing" -> entitySings(world, delay, player);
@@ -77,12 +77,15 @@ public class ChatReplies {
         if (player.level().dimension() == BTD) return;
         if (!(Math.random() < (TEConfig.randomEventChance)/48)) return;
         int delay = 15+(int)(Math.random()*46);
+        String name = player.getName().getString().trim();
         String[] messages = {
-                "<§kUnknown§r> This isn't real.",
-                "<§kUnknown§r> Wake up.",
-                "<§kUnknown§r> "+player.getName().getString().trim()+".",
-                "<§kUnknown§r> They see you.",
-                "<§kUnknown§r> The world changes, but not them."
+                "<§kUnknown§r> Nothing is real.",
+                "<§kUnknown§r> Don't forget me.",
+                "<§kUnknown§r> Remember me " + name + ". Don't forget.",
+                "<§kUnknown§r> I see you. They see you. The universe sees you.",
+                "<§kUnknown§r> Do you remember me, " + player + "?",
+                "<§kUnknown§r> Do you see me?",
+                "<§kUnknown§r> Can you see me?"
         };
         String chat = messages[new Random().nextInt(messages.length)];
         sendChatReply(world, chat, delay);
