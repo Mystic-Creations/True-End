@@ -21,6 +21,9 @@
     ],
     "client": [
       "net.mysticcreations.true_end.client.fabric.TrueEndFabricClient"
+    ],
+    "mixinsquared": [
+      "net.mysticcreations.true_end.mixinsquared.fabric.CancelPerlinNoiseOverwrite"
     ]
   },
   "mixins": [

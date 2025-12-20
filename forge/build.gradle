@@ -43,8 +43,8 @@ dependencies {
     //runClient not launching for some reason
     modCompileOnly 'com.github.Nostalgica-Reverie.Nostalgic-Tweaks:NostalgicTweaks-forge:1.20.1-SNAPSHOT'
 
-    modImplementation(annotationProcessor("io.github.llamalad7:mixinextras-forge:0.5.0"))
-    include("io.github.llamalad7:mixinextras-forge:0.5.0")
+    implementation(annotationProcessor("io.github.llamalad7:mixinextras-forge:0.5.0"))
+    include "io.github.llamalad7:mixinextras-forge:0.5.0"
 
     modCompileOnly "top.theillusivec4.curios:curios-forge:${curios_version}:api"
 
@@ -54,8 +54,8 @@ dependencies {
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionForge')
 
-    //compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:0.3.7-beta.1"))
-    modImplementation("com.github.bawnorton.mixinsquared:mixinsquared-forge:0.3.7-beta.1")
+    compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:0.3.7-beta.1"))
+    implementation(include("com.github.bawnorton.mixinsquared:mixinsquared-forge:0.3.7-beta.1"))
 
     //modImplementation ("curse.maven:accessories-938917:6201361")
     //modImplementation("io.wispforest:accessories-neoforge:$accesories_version")
