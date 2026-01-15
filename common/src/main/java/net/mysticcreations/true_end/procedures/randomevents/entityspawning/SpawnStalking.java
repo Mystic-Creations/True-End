@@ -1,4 +1,4 @@
-package net.mysticcreations.true_end.procedures.randomevents;
+package net.mysticcreations.true_end.procedures.randomevents.entityspawning;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
 
-public class UnknownSpawning {
+public class SpawnStalking {
     private static final long TICK_INTERVAL = 1200L;
     private static final int MAX_ATTEMPTS = 16;
 

@@ -23,6 +23,8 @@ import net.mysticcreations.true_end.procedures.randomevents.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.mysticcreations.true_end.procedures.randomevents.entityspawning.SpawnShortAttack;
+import net.mysticcreations.true_end.procedures.randomevents.entityspawning.SpawnStalking;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,7 +62,8 @@ public final class TrueEndCommon {
 
     public static void registerEvents() {
         TickEvent.SERVER_LEVEL_POST.register(MobStare::onWorldTick);
-        TickEvent.PLAYER_POST.register(UnknownSpawning::onPlayerTick);
+        TickEvent.PLAYER_POST.register(SpawnStalking::onPlayerTick);
+        TickEvent.PLAYER_POST.register(SpawnShortAttack::onPlayerTick);
         TickEvent.PLAYER_POST.register(TimeChange::onPlayerTick);
         TickEvent.PLAYER_POST.register(SoundPlayer::onPlayerTick);
         TickEvent.PLAYER_POST.register(NoSprint::onPlayerTick);
