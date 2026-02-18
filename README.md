@@ -21,7 +21,7 @@ Wake up, *Player.*
 
 <details>
 <summary>Fabric Support</summary>
-Written as of December 24th 2025, we're close to catching up True End Fabric+Forge to recent forge-only versions in terms of fixes and features and we're working slowly on 1.4.3 Fabric+Forge update. For now, True End does have full Kilt support if you want to play it on Fabric early. Old 1.0-1.2 versions that were Fabric and Forge due to slight version confusion and the massive amount of bugs in those versions.
+True End has full Fabric support since around december. But mili won't release it for some reason.
 </details>
 <details>
 <summary>Multiplayer</summary>
