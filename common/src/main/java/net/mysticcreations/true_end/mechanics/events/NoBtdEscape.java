@@ -2,17 +2,16 @@ package net.mysticcreations.true_end.mechanics.events;
 
 import dev.architectury.event.EventResult;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.phys.Vec3;
-import net.mysticcreations.true_end.TrueEnd;
-import net.mysticcreations.true_end.variables.TEVariables;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
+import net.mysticcreations.true_end.TrueEnd;
+import net.mysticcreations.true_end.variables.TEVariables;
 
 import java.util.*;
 

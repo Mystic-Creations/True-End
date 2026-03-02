@@ -1,9 +1,9 @@
 package net.mysticcreations.true_end.init.registries;
 
-import net.mysticcreations.true_end.mixin.FireBlockAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FireBlock;
+import net.mysticcreations.true_end.mixin.FireBlockAccessor;
 
 import java.util.*;
 

@@ -11,7 +11,9 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.mysticcreations.true_end.TrueEnd;
+
 import java.util.Random;
+
 import static net.mysticcreations.true_end.init.TEDimKeys.BTD;
 
 @Mod.EventBusSubscriber(modid = TrueEnd.MOD_ID, value = Dist.CLIENT)

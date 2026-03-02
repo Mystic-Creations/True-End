@@ -1,13 +1,13 @@
 package net.mysticcreations.true_end.config;
 
-import net.mysticcreations.true_end.TrueEnd;
-import net.mysticcreations.true_end.config.serializer.GsonSerializer;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
+import net.mysticcreations.true_end.TrueEnd;
+import net.mysticcreations.true_end.config.serializer.GsonSerializer;
 import org.slf4j.event.Level;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 public class TEConfig {
 

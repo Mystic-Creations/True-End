@@ -2,20 +2,21 @@ package net.mysticcreations.true_end.mechanics.logic;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import dev.architectury.platform.Platform;
-import net.minecraft.network.chat.Component;
-import net.mysticcreations.true_end.config.TEConfig;
-import net.mysticcreations.true_end.init.TEItems;
-import net.mysticcreations.true_end.variables.TEVariables;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtIo;
 import net.minecraft.nbt.Tag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.LevelResource;
+import net.mysticcreations.true_end.config.TEConfig;
+import net.mysticcreations.true_end.init.TEItems;
+import net.mysticcreations.true_end.variables.TEVariables;
+
 import java.io.File;
 import java.nio.file.Path;
 import java.util.Random;

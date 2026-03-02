@@ -2,20 +2,22 @@ package net.mysticcreations.true_end.mechanics.events;
 
 import dev.architectury.event.EventResult;
 import net.minecraft.core.BlockPos;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
-import net.mysticcreations.true_end.TrueEnd;
-import net.mysticcreations.true_end.config.TEConfig;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameType;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.mysticcreations.true_end.TrueEnd;
+import net.mysticcreations.true_end.config.TEConfig;
 import net.mysticcreations.true_end.init.TESounds;
+
 import java.util.Locale;
 import java.util.Random;
+
 import static net.mysticcreations.true_end.init.TEDimKeys.BTD;
 import static net.mysticcreations.true_end.mechanics.randomevents.TimeChange.DAY;
 import static net.mysticcreations.true_end.mechanics.randomevents.TimeChange.NIGHT;

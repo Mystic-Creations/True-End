@@ -6,15 +6,18 @@ import dev.architectury.registry.item.ItemPropertiesRegistry;
 import dev.architectury.registry.menu.MenuRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.mysticcreations.true_end.TrueEnd;
 import net.mysticcreations.true_end.client.renderer.BlackOverlayRenderer;
 import net.mysticcreations.true_end.client.renderer.FunnyScreenRenderer;
 import net.mysticcreations.true_end.client.renderer.UnknownEntityRenderer;
-import net.mysticcreations.true_end.init.*;
-import net.mysticcreations.true_end.mixin.DimSpecialEffectsAccessor;
+import net.mysticcreations.true_end.init.TEEntities;
+import net.mysticcreations.true_end.init.TEItems;
+import net.mysticcreations.true_end.init.TEPackets;
+import net.mysticcreations.true_end.init.TEScreens;
 import net.mysticcreations.true_end.mechanics.logic.adv.TakingInventory;
-import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
+import net.mysticcreations.true_end.mixin.DimSpecialEffectsAccessor;
 import net.mysticcreations.true_end.world.dimension.BeyondTheDream;
 
 @Environment(EnvType.CLIENT)

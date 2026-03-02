@@ -1,9 +1,8 @@
 package net.mysticcreations.true_end.fabric;
 
-import net.mysticcreations.true_end.TrueEnd;
 import net.fabricmc.api.ModInitializer;
+import net.mysticcreations.true_end.TrueEnd;
 import net.mysticcreations.true_end.world.seeping_reality.fabric.SeepingForestRegion;
-import net.minecraft.resources.ResourceLocation;
 import terrablender.api.Regions;
 import terrablender.api.TerraBlenderApi;
 

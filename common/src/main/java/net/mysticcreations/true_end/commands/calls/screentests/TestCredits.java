@@ -1,9 +1,9 @@
 package net.mysticcreations.true_end.commands.calls.screentests;
 
-import net.mysticcreations.true_end.client.CreditsScreen;
-import net.mysticcreations.true_end.init.TESounds;
 import net.minecraft.client.Minecraft;
 import net.minecraft.sounds.SoundSource;
+import net.mysticcreations.true_end.client.CreditsScreen;
+import net.mysticcreations.true_end.init.TESounds;
 
 public class TestCredits {
     private static final Minecraft mc = Minecraft.getInstance();

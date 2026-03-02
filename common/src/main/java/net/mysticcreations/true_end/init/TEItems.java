@@ -1,18 +1,16 @@
 package net.mysticcreations.true_end.init;
 
-import net.mysticcreations.true_end.item.DreamersCompass;
-import net.mysticcreations.true_end.item.MusicDiskFarlands;
-import net.mysticcreations.true_end.item.MusicDiskNeverAlone;
+import dev.architectury.registry.registries.DeferredRegister;
+import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-
-import dev.architectury.registry.registries.DeferredRegister;
-import dev.architectury.registry.registries.RegistrySupplier;
-
 import net.mysticcreations.true_end.TrueEnd;
+import net.mysticcreations.true_end.item.DreamersCompass;
+import net.mysticcreations.true_end.item.MusicDiskFarlands;
+import net.mysticcreations.true_end.item.MusicDiskNeverAlone;
 import net.mysticcreations.true_end.item.MysteriousCube;
 
 public class TEItems {

@@ -1,21 +1,23 @@
 package net.mysticcreations.true_end.client;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import org.jetbrains.annotations.NotNull;
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.mysticcreations.true_end.TrueEnd;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.mysticcreations.true_end.TrueEnd;
+import org.jetbrains.annotations.NotNull;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
 
 public class CreditsScreen extends Screen {
-    private static final ResourceLocation TITLE_TEX = TrueEnd.asResource("true_end:textures/gui/title.png");
+    private static final ResourceLocation TITLE_TEX = TrueEnd.asResource("textures/gui/title.png");
     private static final ResourceLocation TEXT_FILE = TrueEnd.asResource("texts/credits.txt");
     private static final ResourceLocation BG_TEXTURE = TrueEnd.asResource("textures/block/old_dirt.png");
     private static final String ALLOWED_SYMBOLS = "~_-=+!@#$%^&*()/\\?<>.,[]{};':\"|";

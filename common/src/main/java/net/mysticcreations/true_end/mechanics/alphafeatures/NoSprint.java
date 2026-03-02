@@ -1,7 +1,7 @@
 package net.mysticcreations.true_end.mechanics.alphafeatures;
 
-import net.mysticcreations.true_end.init.TEDimKeys;
 import net.minecraft.world.entity.player.Player;
+import net.mysticcreations.true_end.init.TEDimKeys;
 
 public class NoSprint {
     public static void onPlayerTick(Player player) {

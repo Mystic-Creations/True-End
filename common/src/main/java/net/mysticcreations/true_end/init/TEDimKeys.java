@@ -1,7 +1,6 @@
 package net.mysticcreations.true_end.init;
 
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.mysticcreations.true_end.TrueEnd;
 

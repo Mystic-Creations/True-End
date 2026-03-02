@@ -2,11 +2,11 @@ package net.mysticcreations.true_end.init;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.DeferredSupplier;
-import net.mysticcreations.true_end.TrueEnd;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.mysticcreations.true_end.TrueEnd;
 
 public class TECreativeTabs {
 

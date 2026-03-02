@@ -1,13 +1,13 @@
 package net.mysticcreations.true_end.client.renderer;
 
-import net.mysticcreations.true_end.TrueEnd;
-import net.mysticcreations.true_end.entity.Unknown;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.mysticcreations.true_end.TrueEnd;
+import net.mysticcreations.true_end.entity.Unknown;
 public class UnknownEntityRenderer {
 
     public static class UnknownRenderer extends MobRenderer<Unknown, HumanoidModel<Unknown>> {

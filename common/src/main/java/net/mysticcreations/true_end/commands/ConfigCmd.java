@@ -4,11 +4,11 @@ import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import dev.architectury.event.events.common.CommandRegistrationEvent;
-import net.mysticcreations.true_end.config.ConfigSync;
-import net.mysticcreations.true_end.config.TEConfig;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
+import net.mysticcreations.true_end.config.ConfigSync;
+import net.mysticcreations.true_end.config.TEConfig;
 
 import static net.mysticcreations.true_end.config.TEConfig.*;
 

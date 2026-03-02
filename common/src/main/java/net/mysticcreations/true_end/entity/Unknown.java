@@ -1,9 +1,5 @@
 package net.mysticcreations.true_end.entity;
 
-import java.util.EnumSet;
-import java.util.Random;
-
-import net.mysticcreations.true_end.variables.TEVariables;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -26,6 +22,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.mysticcreations.true_end.variables.TEVariables;
+
+import java.util.EnumSet;
+import java.util.Random;
 
 public class Unknown extends AmbientCreature {
     private static final double FOLLOW_RANGE = 128;

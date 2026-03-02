@@ -1,8 +1,6 @@
 package net.mysticcreations.true_end.mechanics;
 
 import dev.architectury.event.EventResult;
-import net.mysticcreations.true_end.TrueEnd;
-import net.mysticcreations.true_end.config.TEConfig;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.core.BlockPos;
@@ -10,7 +8,6 @@ import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.network.protocol.game.ClientboundPlayerAbilitiesPacket;
 import net.minecraft.network.protocol.game.ClientboundUpdateMobEffectPacket;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
@@ -18,6 +15,8 @@ import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
+import net.mysticcreations.true_end.TrueEnd;
+import net.mysticcreations.true_end.config.TEConfig;
 import net.mysticcreations.true_end.mechanics.logic.PlayerInvManager;
 
 import java.util.HashMap;

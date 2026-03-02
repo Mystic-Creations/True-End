@@ -1,19 +1,18 @@
 package net.mysticcreations.true_end.mechanics.randomevents;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.mysticcreations.true_end.TrueEnd;
 import net.mysticcreations.true_end.config.TEConfig;
 import net.mysticcreations.true_end.init.TEBlocks;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.Level;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.core.BlockPos;
 
 import static net.minecraft.world.level.block.Blocks.*;
-
 import static net.mysticcreations.true_end.init.TEDimKeys.NWAD;
 import static net.mysticcreations.true_end.mechanics.DimSwapToBTD.BlockPosRandomX;
 import static net.mysticcreations.true_end.mechanics.DimSwapToBTD.BlockPosRandomZ;

@@ -1,8 +1,8 @@
 package net.mysticcreations.true_end.mechanics.randomevents;
 
-import net.mysticcreations.true_end.config.TEConfig;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
+import net.mysticcreations.true_end.config.TEConfig;
 
 public class TimeChange {
     public static final int DAY = 1000;

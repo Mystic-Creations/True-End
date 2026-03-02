@@ -1,12 +1,13 @@
 package net.mysticcreations.true_end.mechanics.randomevents;
 
-import net.mysticcreations.true_end.TrueEnd;
-import net.mysticcreations.true_end.config.TEConfig;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.phys.AABB;
+import net.mysticcreations.true_end.TrueEnd;
+import net.mysticcreations.true_end.config.TEConfig;
+
 import java.util.*;
 
 public class MobStare {

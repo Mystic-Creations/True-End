@@ -1,9 +1,9 @@
 package net.mysticcreations.true_end.mechanics.logic;
 
-import net.mysticcreations.true_end.init.TEDimKeys;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
+import net.mysticcreations.true_end.init.TEDimKeys;
 
 public class FoodLvlReset {
     public static void onChangeDimension(ServerPlayer player, ResourceKey<Level> fromDimension, ResourceKey<Level> toDimension) {

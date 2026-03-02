@@ -1,14 +1,5 @@
 package net.mysticcreations.true_end.mechanics.randomevents.entityspawning;
 
-import java.util.List;
-
-import net.mysticcreations.true_end.TrueEnd;
-import net.mysticcreations.true_end.config.TEConfig;
-import net.mysticcreations.true_end.entity.Unknown;
-import net.mysticcreations.true_end.init.TEEntities;
-import net.mysticcreations.true_end.mechanics.logic.adv.NotAlone;
-import net.mysticcreations.true_end.variables.TEVariables;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -19,6 +10,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.mysticcreations.true_end.TrueEnd;
+import net.mysticcreations.true_end.config.TEConfig;
+import net.mysticcreations.true_end.entity.Unknown;
+import net.mysticcreations.true_end.init.TEEntities;
+import net.mysticcreations.true_end.mechanics.logic.adv.NotAlone;
+import net.mysticcreations.true_end.variables.TEVariables;
+
+import java.util.List;
 
 public class SpawnStalking {
     private static final long TICK_INTERVAL = 1200L;

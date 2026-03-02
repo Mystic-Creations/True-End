@@ -1,6 +1,7 @@
 package net.mysticcreations.true_end.mixinsquared.forge;
 
 import com.bawnorton.mixinsquared.api.MixinCanceller;
+
 import java.util.List;
 
 public class CancelPerlinNoiseOverwrite implements MixinCanceller {

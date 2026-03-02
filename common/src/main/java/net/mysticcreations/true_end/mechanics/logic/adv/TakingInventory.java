@@ -2,10 +2,10 @@ package net.mysticcreations.true_end.mechanics.logic.adv;
 
 import dev.architectury.networking.NetworkManager;
 import io.netty.buffer.Unpooled;
-import net.mysticcreations.true_end.init.TEPackets;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.network.FriendlyByteBuf;
+import net.mysticcreations.true_end.init.TEPackets;
 
 public class TakingInventory {
     private static boolean hasOpenedInventory = false;

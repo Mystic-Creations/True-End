@@ -1,7 +1,7 @@
 package net.mysticcreations.true_end.client;
 
-import net.mysticcreations.true_end.init.TEDimKeys;
 import net.minecraft.client.Minecraft;
+import net.mysticcreations.true_end.init.TEDimKeys;
 
 import java.util.Random;
 

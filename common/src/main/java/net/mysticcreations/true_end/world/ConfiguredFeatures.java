@@ -1,13 +1,12 @@
 package net.mysticcreations.true_end.world;
 
-import net.mysticcreations.true_end.TrueEnd;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.mysticcreations.true_end.TrueEnd;
 
 public class ConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ALPHA_TREE = registerKey("alpha_tree");

@@ -1,29 +1,29 @@
 package net.mysticcreations.true_end.world.teleporter;
 
-import net.mysticcreations.true_end.init.TEBlocks;
-import net.mysticcreations.true_end.init.TEPoiTypes;
+import net.minecraft.BlockUtil;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.ai.village.poi.PoiManager;
+import net.minecraft.world.entity.ai.village.poi.PoiRecord;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.NetherPortalBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.border.WorldBorder;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.portal.PortalForcer;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.portal.PortalInfo;
-import net.minecraft.world.level.border.WorldBorder;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.NetherPortalBlock;
-import net.minecraft.world.entity.ai.village.poi.PoiRecord;
-import net.minecraft.world.entity.ai.village.poi.PoiManager;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
-import net.minecraft.BlockUtil;
+import net.minecraft.world.phys.Vec3;
+import net.mysticcreations.true_end.init.TEBlocks;
+import net.mysticcreations.true_end.init.TEPoiTypes;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Optional;
 import java.util.Comparator;
+import java.util.Optional;
 
 public class BeyondTheDreamTeleporter extends PortalForcer {
 

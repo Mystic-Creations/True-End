@@ -2,12 +2,12 @@ package net.mysticcreations.true_end.mechanics.logic;
 
 import dev.architectury.networking.NetworkManager;
 import io.netty.buffer.Unpooled;
-import net.mysticcreations.true_end.config.TEConfig;
-import net.mysticcreations.true_end.init.TEPackets;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
+import net.mysticcreations.true_end.config.TEConfig;
+import net.mysticcreations.true_end.init.TEPackets;
 
 import static net.mysticcreations.true_end.init.TEDimKeys.BTD;
 

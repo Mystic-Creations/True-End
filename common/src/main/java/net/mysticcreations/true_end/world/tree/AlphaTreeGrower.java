@@ -1,10 +1,10 @@
 package net.mysticcreations.true_end.world.tree;
 
-import net.mysticcreations.true_end.world.ConfiguredFeatures;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.mysticcreations.true_end.world.ConfiguredFeatures;
 import org.jetbrains.annotations.Nullable;
 
 public class AlphaTreeGrower extends AbstractTreeGrower {

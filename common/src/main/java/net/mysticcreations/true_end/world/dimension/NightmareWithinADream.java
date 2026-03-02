@@ -3,8 +3,6 @@ package net.mysticcreations.true_end.world.dimension;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.world.phys.Vec3;
 
-import java.awt.*;
-
 public class NightmareWithinADream extends DimensionSpecialEffects {
     public NightmareWithinADream() {
         super(255f, false, SkyType.NONE, true, false);

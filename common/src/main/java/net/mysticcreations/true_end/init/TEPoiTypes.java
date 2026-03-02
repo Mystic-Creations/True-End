@@ -2,9 +2,9 @@ package net.mysticcreations.true_end.init;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
-import net.mysticcreations.true_end.TrueEnd;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
+import net.mysticcreations.true_end.TrueEnd;
 
 import java.util.Set;
 

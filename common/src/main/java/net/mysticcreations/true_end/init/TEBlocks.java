@@ -2,10 +2,10 @@ package net.mysticcreations.true_end.init;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.level.block.Block;
 import net.mysticcreations.true_end.TrueEnd;
 import net.mysticcreations.true_end.block.*;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.core.registries.Registries;
 import net.mysticcreations.true_end.block.Void;
 
 // Import your block classes

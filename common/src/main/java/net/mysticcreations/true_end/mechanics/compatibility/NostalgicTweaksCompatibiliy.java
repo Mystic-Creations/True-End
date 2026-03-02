@@ -2,8 +2,8 @@ package net.mysticcreations.true_end.mechanics.compatibility;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import dev.architectury.platform.Platform;
-import net.mysticcreations.true_end.init.TEDimKeys;
 import net.minecraft.world.entity.player.Player;
+import net.mysticcreations.true_end.init.TEDimKeys;
 
 public class NostalgicTweaksCompatibiliy {
 

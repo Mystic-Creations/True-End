@@ -3,10 +3,9 @@ package net.mysticcreations.true_end.init;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
-import net.mysticcreations.true_end.TrueEnd;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.mysticcreations.true_end.TrueEnd;
 
 public class TESounds {
     public static final DeferredRegister<SoundEvent> REGISTRY = DeferredRegister.create(TrueEnd.MOD_ID,Registries.SOUND_EVENT);

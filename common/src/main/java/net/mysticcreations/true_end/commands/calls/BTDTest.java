@@ -1,11 +1,11 @@
 package net.mysticcreations.true_end.commands.calls;
 
-import net.mysticcreations.true_end.TrueEnd;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.CommandSource;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.LevelAccessor;
+import net.mysticcreations.true_end.TrueEnd;
 
 public class BTDTest {
     // TODO: Optimize this bullshit

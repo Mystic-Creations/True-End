@@ -1,15 +1,14 @@
 package net.mysticcreations.true_end.forge;
 
 import dev.architectury.platform.forge.EventBuses;
-import net.mysticcreations.true_end.TrueEnd;
-import net.mysticcreations.true_end.world.seeping_reality.forge.SeepingForestRegion;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
+import net.mysticcreations.true_end.TrueEnd;
+import net.mysticcreations.true_end.world.seeping_reality.forge.SeepingForestRegion;
 import terrablender.api.Regions;
 
 import static org.antlr.runtime.debug.DebugEventListener.PROTOCOL_VERSION;

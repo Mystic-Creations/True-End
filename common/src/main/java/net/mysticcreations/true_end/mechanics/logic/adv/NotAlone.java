@@ -1,11 +1,10 @@
 package net.mysticcreations.true_end.mechanics.logic.adv;
 
-import net.mysticcreations.true_end.TrueEnd;
-import net.mysticcreations.true_end.config.TEConfig;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementProgress;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.mysticcreations.true_end.TrueEnd;
+import net.mysticcreations.true_end.config.TEConfig;
 
 import static net.mysticcreations.true_end.init.TEDimKeys.BTD;
 

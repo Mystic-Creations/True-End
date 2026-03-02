@@ -4,18 +4,18 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import dev.architectury.event.events.common.CommandRegistrationEvent;
 import dev.architectury.networking.NetworkManager;
 import io.netty.buffer.Unpooled;
-import net.mysticcreations.true_end.TrueEnd;
-import net.mysticcreations.true_end.commands.calls.BTDTest;
-import net.mysticcreations.true_end.commands.calls.PrintVars;
-import net.mysticcreations.true_end.commands.calls.screens.BlackOverlay;
-import net.mysticcreations.true_end.commands.calls.screens.FunnyScreen;
-import net.mysticcreations.true_end.init.TEPackets;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
+import net.mysticcreations.true_end.TrueEnd;
+import net.mysticcreations.true_end.commands.calls.BTDTest;
+import net.mysticcreations.true_end.commands.calls.PrintVars;
+import net.mysticcreations.true_end.commands.calls.screens.BlackOverlay;
+import net.mysticcreations.true_end.commands.calls.screens.FunnyScreen;
+import net.mysticcreations.true_end.init.TEPackets;
 
 public class DeveloperCmd {
     public static void register() {

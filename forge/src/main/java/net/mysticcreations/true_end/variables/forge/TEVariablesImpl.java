@@ -1,10 +1,6 @@
 package net.mysticcreations.true_end.variables.forge;
 
-import net.mysticcreations.true_end.TrueEnd;
-import net.mysticcreations.true_end.variables.WorldData;
-import net.mysticcreations.true_end.variables.PlayerData;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
@@ -14,6 +10,9 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.mysticcreations.true_end.TrueEnd;
+import net.mysticcreations.true_end.variables.PlayerData;
+import net.mysticcreations.true_end.variables.WorldData;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

@@ -1,12 +1,12 @@
 package net.mysticcreations.true_end.client.forge;
 
-import net.mysticcreations.true_end.client.renderer.UnknownEntityRenderer;
-import net.mysticcreations.true_end.init.TEEntities;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.mysticcreations.true_end.client.renderer.UnknownEntityRenderer;
+import net.mysticcreations.true_end.init.TEEntities;
 
 @OnlyIn(Dist.CLIENT)
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

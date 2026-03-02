@@ -2,10 +2,10 @@ package net.mysticcreations.true_end.config;
 
 import dev.architectury.networking.NetworkManager;
 import io.netty.buffer.Unpooled;
-import net.mysticcreations.true_end.init.TEPackets;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
+import net.mysticcreations.true_end.init.TEPackets;
 
 public class ConfigSync {
 

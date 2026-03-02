@@ -1,10 +1,10 @@
 package net.mysticcreations.true_end.variables.fabric;
 
-import net.mysticcreations.true_end.fabric.ServerPlayerExt;
-import net.mysticcreations.true_end.variables.WorldData;
-import net.mysticcreations.true_end.variables.PlayerData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
+import net.mysticcreations.true_end.fabric.ServerPlayerExt;
+import net.mysticcreations.true_end.variables.PlayerData;
+import net.mysticcreations.true_end.variables.WorldData;
 
 public class TEVariablesImpl {
 

@@ -3,11 +3,11 @@ package net.mysticcreations.true_end.init;
 import dev.architectury.registry.menu.MenuRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.inventory.MenuType;
 import net.mysticcreations.true_end.TrueEnd;
 import net.mysticcreations.true_end.commands.calls.screens.BlackOverlay;
 import net.mysticcreations.true_end.commands.calls.screens.FunnyScreen;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.inventory.MenuType;
 
 public class TEScreens {
     public static DeferredRegister<MenuType<?>> REGISTRY = DeferredRegister.create(TrueEnd.MOD_ID, Registries.MENU);

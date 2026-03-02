@@ -1,13 +1,13 @@
 package net.mysticcreations.true_end.commands.calls;
 
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.Level;
 import net.mysticcreations.true_end.config.TEConfig;
 import net.mysticcreations.true_end.variables.PlayerData;
 import net.mysticcreations.true_end.variables.TEVariables;
 import net.mysticcreations.true_end.variables.WorldData;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.level.Level;
 
 public class PrintVars {
 

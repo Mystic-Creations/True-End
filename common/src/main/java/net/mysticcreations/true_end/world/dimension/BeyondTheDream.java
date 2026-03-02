@@ -1,8 +1,8 @@
 package net.mysticcreations.true_end.world.dimension;
 
-import net.mysticcreations.true_end.config.TEConfig;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.world.phys.Vec3;
+import net.mysticcreations.true_end.config.TEConfig;
 import org.jetbrains.annotations.NotNull;
 
 public class BeyondTheDream extends DimensionSpecialEffects {

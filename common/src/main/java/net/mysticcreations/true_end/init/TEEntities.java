@@ -3,11 +3,11 @@ package net.mysticcreations.true_end.init;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
-import net.mysticcreations.true_end.TrueEnd;
-import net.mysticcreations.true_end.entity.Unknown;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.mysticcreations.true_end.TrueEnd;
+import net.mysticcreations.true_end.entity.Unknown;
 
 public class TEEntities {
     public static final DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(TrueEnd.MOD_ID, Registries.ENTITY_TYPE);

@@ -1,17 +1,17 @@
 package net.mysticcreations.true_end.init;
 
 import dev.architectury.networking.NetworkManager;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 import net.mysticcreations.true_end.TrueEnd;
 import net.mysticcreations.true_end.commands.calls.screentests.TestCredits;
 import net.mysticcreations.true_end.config.TEConfig;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.Player;
 
 public class TEPackets {
 
     public static ResourceLocation SHOW_CREDITS_PACKET = TrueEnd.asResource("show_credits");
-    public static ResourceLocation FOG_TOGGLE =  TrueEnd.asResource("true_end:fog_toggle");
-    public static ResourceLocation OPEN_INVENTORY_PACKET = TrueEnd.asResource("true_end:open_inventory");
+    public static ResourceLocation FOG_TOGGLE =  TrueEnd.asResource("fog_toggle");
+    public static ResourceLocation OPEN_INVENTORY_PACKET = TrueEnd.asResource("open_inventory");
 
     public static void registerClient() {
 
