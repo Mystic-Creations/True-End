@@ -6,8 +6,8 @@ import net.minecraft.world.phys.Vec3;
 import java.awt.*;
 
 public class NightmareWithinADream extends DimensionSpecialEffects {
-    public NightmareWithinADream(float cloudLevel, boolean hasGround, SkyType skyType, boolean forceBrightLightmap, boolean constantAmbientLight) {
-        super(cloudLevel, hasGround, skyType, forceBrightLightmap, constantAmbientLight);
+    public NightmareWithinADream() {
+        super(255f, false, SkyType.NONE, true, false);
     }
 
     @Override

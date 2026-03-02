@@ -4,7 +4,7 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import dev.architectury.event.events.common.CommandRegistrationEvent;
 import dev.architectury.networking.NetworkManager;
 import io.netty.buffer.Unpooled;
-import net.mysticcreations.true_end.TrueEndCommon;
+import net.mysticcreations.true_end.TrueEnd;
 import net.mysticcreations.true_end.commands.calls.BTDTest;
 import net.mysticcreations.true_end.commands.calls.PrintVars;
 import net.mysticcreations.true_end.commands.calls.screens.BlackOverlay;
@@ -46,7 +46,7 @@ public class DeveloperCmd {
                             try {
                                 BlackOverlay.call(player);
                             } catch (Exception e) {
-                                TrueEndCommon.LOGGER.error("Failed to open black screen!", e);
+                                TrueEnd.LOGGER.error("Failed to open black screen!", e);
                             }
                             return 0;
                         }))

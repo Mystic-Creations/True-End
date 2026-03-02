@@ -10,11 +10,11 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.mysticcreations.true_end.TrueEndCommon;
+import net.mysticcreations.true_end.TrueEnd;
 import java.util.Random;
 import static net.mysticcreations.true_end.init.TEDimKeys.BTD;
 
-@Mod.EventBusSubscriber(modid = TrueEndCommon.MOD_ID, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = TrueEnd.MOD_ID, value = Dist.CLIENT)
 public class VersionOverlay {
 
     private static final String BASE_TEXT = "Minecraft Alpha v1.1.2_10";

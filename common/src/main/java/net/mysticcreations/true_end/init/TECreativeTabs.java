@@ -2,7 +2,7 @@ package net.mysticcreations.true_end.init;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.DeferredSupplier;
-import net.mysticcreations.true_end.TrueEndCommon;
+import net.mysticcreations.true_end.TrueEnd;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 public class TECreativeTabs {
 
     public static final DeferredRegister<CreativeModeTab> REGISTRY =
-            DeferredRegister.create(TrueEndCommon.MOD_ID, Registries.CREATIVE_MODE_TAB);
+            DeferredRegister.create(TrueEnd.MOD_ID, Registries.CREATIVE_MODE_TAB);
 
     public static final DeferredSupplier<CreativeModeTab> TRUE_END = REGISTRY.register("true_end", () ->
             CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0).title(Component.translatable("item_group.true_end.true_end")).icon(() -> new ItemStack(TEBlocks.GRASS_BLOCK.get())).displayItems((parameters, tabData) -> {

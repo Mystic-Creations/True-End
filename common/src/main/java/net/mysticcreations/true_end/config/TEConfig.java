@@ -1,6 +1,6 @@
 package net.mysticcreations.true_end.config;
 
-import net.mysticcreations.true_end.TrueEndCommon;
+import net.mysticcreations.true_end.TrueEnd;
 import net.mysticcreations.true_end.config.serializer.GsonSerializer;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
@@ -59,8 +59,8 @@ public class TEConfig {
 
         TEConfig.entries = entries;
         serializer.serialize(TEConfig.entries);
-        TrueEndCommon.LOGGER.info("[TrueEnd] Successfully loaded TrueEnd Config!");
-        TrueEndCommon.LOGGER.atLevel(Level.DEBUG).log(TEConfig.serializer.getMessage());
+        TrueEnd.LOGGER.info("[TrueEnd] Successfully loaded TrueEnd Config!");
+        TrueEnd.LOGGER.atLevel(Level.DEBUG).log(TEConfig.serializer.getMessage());
     }
 
     public static void updateConfig(String key, Object value) {
@@ -78,7 +78,7 @@ public class TEConfig {
             case "clearDreamItems" -> clearDreamItems = (boolean) value;
             case "doFlashingLights" -> doFlashingLights = (boolean) value;
             case "doChatReplies" -> doChatReplies = (boolean) value;
-            default -> TrueEndCommon.LOGGER.warn("updateConfig: unhandled key '{}'", key);
+            default -> TrueEnd.LOGGER.warn("updateConfig: unhandled key '{}'", key);
         }
     }
 

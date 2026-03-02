@@ -7,15 +7,15 @@
     "minVersion": "0.5.0"
   },
   "client": [
-    "NoStomachGrowlSFX"
+    "NoStomachGrowlSFX",
+    "DimSpecialEffectsAccessor"
   ],
   "mixins": [
+    "EntityAccessor",
     "Farlands",
     "FireBlockAccessor",
     "PlayerWakeUpMixin",
-    "SheepEatTrueEndGrassMixin",
-    "StopSprintingInBTDMixin",
-    "EntityAccessor"
+    "SheepEatTrueEndGrassMixin"
   ],
   "injectors": {
     "defaultRequire": 1

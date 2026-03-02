@@ -21,13 +21,14 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.material.MapColor;
+import net.mysticcreations.true_end.TrueEnd;
 
 public class Leaves extends Block implements SimpleWaterloggedBlock {
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	public static final IntegerProperty DISTANCE = IntegerProperty.create("distance", 1, 7);
 	public static final BooleanProperty PERSISTENT = BlockStateProperties.PERSISTENT;
 
-	public static final TagKey<Block> woodTag = TagKey.create(Registries.BLOCK, new ResourceLocation("true_end:wood"));
+	public static final TagKey<Block> woodTag = TagKey.create(Registries.BLOCK, TrueEnd.asResource("wood"));
 
 
 	public Leaves() {

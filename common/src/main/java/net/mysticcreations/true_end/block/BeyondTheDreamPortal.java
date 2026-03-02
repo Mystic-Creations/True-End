@@ -1,6 +1,7 @@
 package net.mysticcreations.true_end.block;
 
-import net.mysticcreations.true_end.init.TEParticleTypes;
+import net.mysticcreations.true_end.TrueEnd;
+import net.mysticcreations.true_end.init.TEParticles;
 import net.mysticcreations.true_end.world.teleporter.BeyondTheDreamPortalShape;
 import net.mysticcreations.true_end.world.teleporter.BeyondTheDreamTeleporter;
 import net.minecraft.server.MinecraftServer;
@@ -45,7 +46,7 @@ public class BeyondTheDreamPortal extends NetherPortalBlock {
             optional.get().createPortalBlocks();
             // Play the beacon power select sound
             if (!world.isClientSide()) {
-                world.playSound(null, pos, SoundEvent.createVariableRangeEvent(new ResourceLocation("block.portal.ambient")), SoundSource.BLOCKS, 1, 1);
+                world.playSound(null, pos, SoundEvent.createVariableRangeEvent(TrueEnd.asPath("block.portal.ambient")), SoundSource.BLOCKS, 1, 1);
             }
         }
     }
@@ -75,10 +76,10 @@ public class BeyondTheDreamPortal extends NetherPortalBlock {
                 pz = pos.getZ() + 0.5 + 0.25 * j;
                 vz = random.nextFloat() * 2 * j;
             }
-            world.addParticle(TEParticleTypes.DREAM_PORTAL_PARTICLE.get(), px, py, pz, vx, vy, vz);
+            world.addParticle(TEParticles.DREAM_PORTAL_PARTICLE.get(), px, py, pz, vx, vy, vz);
         }
         if (random.nextInt(110) == 0)
-            world.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvent.createVariableRangeEvent(new ResourceLocation("block.portal.ambient")), SoundSource.BLOCKS, 0.5f, random.nextFloat() * 0.4f + 0.8f);
+            world.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvent.createVariableRangeEvent(TrueEnd.asPath("block.portal.ambient")), SoundSource.BLOCKS, 0.5f, random.nextFloat() * 0.4f + 0.8f);
     }
 
     @Override

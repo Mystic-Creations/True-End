@@ -1,5 +1,6 @@
 package net.mysticcreations.true_end.client.renderer;
 
+import net.mysticcreations.true_end.TrueEnd;
 import net.mysticcreations.true_end.entity.Unknown;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayers;
@@ -21,7 +22,7 @@ public class UnknownEntityRenderer {
 
         @Override
         public ResourceLocation getTextureLocation(Unknown entity) {
-            return new ResourceLocation("true_end:textures/entity/unknown/" + entity.getTextureName() + ".png");
+            return TrueEnd.asResource("textures/entity/unknown/" + entity.getTextureName() + ".png");
         }
     }
 }

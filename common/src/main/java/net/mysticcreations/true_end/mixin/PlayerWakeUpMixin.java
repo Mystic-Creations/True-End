@@ -1,6 +1,6 @@
 package net.mysticcreations.true_end.mixin;
 
-import net.mysticcreations.true_end.procedures.events.FeelingWatched;
+import net.mysticcreations.true_end.mechanics.events.FeelingWatched;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;

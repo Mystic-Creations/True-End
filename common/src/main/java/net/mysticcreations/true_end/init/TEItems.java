@@ -12,11 +12,11 @@ import net.minecraft.world.level.block.Block;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 
-import net.mysticcreations.true_end.TrueEndCommon;
+import net.mysticcreations.true_end.TrueEnd;
 import net.mysticcreations.true_end.item.MysteriousCube;
 
 public class TEItems {
-    public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(TrueEndCommon.MOD_ID, Registries.ITEM);
+    public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(TrueEnd.MOD_ID, Registries.ITEM);
 
     public static final RegistrySupplier<Item> DIRT = block(TEBlocks.DIRT);
     public static final RegistrySupplier<Item> GRASS_BLOCK = block(TEBlocks.GRASS_BLOCK);

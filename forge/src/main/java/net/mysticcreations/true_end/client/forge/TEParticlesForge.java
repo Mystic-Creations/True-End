@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.Mod;
 public class TEParticlesForge {
     @SubscribeEvent
     public static void registerParticles(RegisterParticleProvidersEvent event) {
-        TEParticles.register();
+        TEParticles.registerParticles();
     }
 
 }

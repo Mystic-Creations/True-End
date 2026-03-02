@@ -1,6 +1,6 @@
 package net.mysticcreations.true_end.fabric;
 
-import net.mysticcreations.true_end.TrueEndCommon;
+import net.mysticcreations.true_end.TrueEnd;
 import net.fabricmc.api.ModInitializer;
 import net.mysticcreations.true_end.world.seeping_reality.fabric.SeepingForestRegion;
 import net.minecraft.resources.ResourceLocation;
@@ -16,13 +16,13 @@ public final class TrueEndFabric implements ModInitializer, TerraBlenderApi {
         // Proceed with mild caution.
 
         // Run our common setup.
-        TrueEndCommon.init();
+        TrueEnd.init();
 
     }
     @Override
     public void onTerraBlenderInitialized()
     {
-        TrueEndCommon.LOGGER.info("TERRABLENDER");
-        Regions.register(new SeepingForestRegion(new ResourceLocation("true_end:overworld_region"), 1));
+        TrueEnd.LOGGER.info("TERRABLENDER");
+        Regions.register(new SeepingForestRegion(TrueEnd.asResource("overworld_region"), 1));
     }
 }

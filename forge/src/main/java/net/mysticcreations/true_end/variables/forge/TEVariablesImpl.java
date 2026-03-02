@@ -1,5 +1,6 @@
 package net.mysticcreations.true_end.variables.forge;
 
+import net.mysticcreations.true_end.TrueEnd;
 import net.mysticcreations.true_end.variables.WorldData;
 import net.mysticcreations.true_end.variables.PlayerData;
 import net.minecraft.nbt.CompoundTag;
@@ -46,7 +47,7 @@ public class TEVariablesImpl {
         public static void attachCaps(AttachCapabilitiesEvent<Entity> evt) {
             if (evt.getObject() instanceof ServerPlayer) {
                 evt.addCapability(
-                        new ResourceLocation("true_end", "player_variables"),
+                        TrueEnd.asResource("player_vars"),
                         new PlayerVariablesProvider()
                 );
             }

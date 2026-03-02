@@ -6,9 +6,8 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
 public class BeyondTheDream extends DimensionSpecialEffects {
-
-    public BeyondTheDream(float cloudLevel, boolean hasGround, SkyType skyType, boolean forceBrightLightmap, boolean constantAmbientLight) {
-        super(cloudLevel, hasGround, skyType, forceBrightLightmap, constantAmbientLight);
+    public BeyondTheDream() {
+        super(112f, true, SkyType.NONE, false, false);
     }
 
     @Override

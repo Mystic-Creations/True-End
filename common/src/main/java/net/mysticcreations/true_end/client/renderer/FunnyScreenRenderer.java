@@ -1,5 +1,6 @@
 package net.mysticcreations.true_end.client.renderer;
 
+import net.mysticcreations.true_end.TrueEnd;
 import net.mysticcreations.true_end.commands.calls.screens.FunnyScreen;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
@@ -32,7 +33,7 @@ public class FunnyScreenRenderer extends AbstractContainerScreen<FunnyScreen> {
         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
-        RenderSystem.setShaderTexture(0, new ResourceLocation("true_end:textures/screens/funny.png"));
+        RenderSystem.setShaderTexture(0, TrueEnd.asResource("textures/screens/funny.png"));
 
         final int texW = 1280;
         final int texH = 720;
@@ -46,11 +47,11 @@ public class FunnyScreenRenderer extends AbstractContainerScreen<FunnyScreen> {
         pose.scale(scaleX, scaleY, 1f);
 
         guiGraphics.blit(
-                new ResourceLocation("true_end:textures/screens/funny.png"),
-                0, 0,
-                0, 0,
-                texW, texH,
-                texW, texH
+            TrueEnd.asResource("textures/screens/funny.png"),
+            0, 0,
+            0, 0,
+            texW, texH,
+            texW, texH
         );
         pose.popPose();
 

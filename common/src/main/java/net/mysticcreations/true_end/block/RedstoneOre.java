@@ -1,6 +1,6 @@
 package net.mysticcreations.true_end.block;
 
-import net.mysticcreations.true_end.TrueEndCommon;
+import net.mysticcreations.true_end.TrueEnd;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.util.RandomSource;
@@ -112,7 +112,7 @@ public class RedstoneOre extends Block {
 
 		int randomDelay = 1365 + RandomSource.create().nextInt(273);
 
-		TrueEndCommon.queueServerWork(randomDelay, () -> {
+		TrueEnd.queueServerWork(randomDelay, () -> {
 			BlockState _bs2 = world.getBlockState(pos);
 			if (_bs2.getBlock().getStateDefinition().getProperty("lit") instanceof BooleanProperty _booleanProp2)
 				world.setBlock(pos, _bs2.setValue(_booleanProp2, false), 3);

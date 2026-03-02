@@ -1,6 +1,6 @@
 package net.mysticcreations.true_end.init;
 
-import net.mysticcreations.true_end.registry.ArsonRegistry;
+import net.mysticcreations.true_end.init.registries.ArsonRegistry;
 
 public class TEFireBlocks {
     public static ArsonRegistry REGISTRY = ArsonRegistry.createInstance();

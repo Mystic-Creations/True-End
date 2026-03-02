@@ -2,8 +2,7 @@ package net.mysticcreations.true_end.init;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
-import net.mysticcreations.true_end.TrueEndCommon;
-import net.mysticcreations.true_end.block.*;
+import net.mysticcreations.true_end.TrueEnd;
 import net.mysticcreations.true_end.block.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.core.registries.Registries;
@@ -13,7 +12,7 @@ import net.mysticcreations.true_end.block.Void;
 
 
 public class TEBlocks {
-    public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(TrueEndCommon.MOD_ID, Registries.BLOCK);
+    public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(TrueEnd.MOD_ID, Registries.BLOCK);
 
     public static final RegistrySupplier<Block> DIRT = REGISTRY.register("dirt", Dirt::new);
     public static final RegistrySupplier<Block> GRASS_BLOCK = REGISTRY.register("grass_block", GrassBlock::new);
@@ -49,7 +48,7 @@ public class TEBlocks {
     public static final RegistrySupplier<Block> VOID = REGISTRY.register("void", Void::new);
 
     public static void register() {
-        TrueEndCommon.LOGGER.info("[TRUE_END] Registering TrueEnd Blocks");
+        TrueEnd.LOGGER.info("[TRUE_END] Registering TrueEnd Blocks");
         REGISTRY.register();
     }
 }

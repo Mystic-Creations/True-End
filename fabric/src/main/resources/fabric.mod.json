@@ -20,7 +20,7 @@
       "net.mysticcreations.true_end.fabric.TrueEndFabric"
     ],
     "client": [
-      "net.mysticcreations.true_end.client.fabric.TrueEndFabricClient"
+      "net.mysticcreations.true_end.client.fabric.FabricClient"
     ],
     "mixinsquared": [
       "net.mysticcreations.true_end.mixinsquared.fabric.CancelPerlinNoiseOverwrite"

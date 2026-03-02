@@ -8,7 +8,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.CompassItem;
@@ -16,10 +15,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.structure.Structure;
+import net.mysticcreations.true_end.TrueEnd;
 
 public class DreamersCompass extends CompassItem {
     private static final ResourceKey<Structure> STRUCTURE_KEY =
-            ResourceKey.create(Registries.STRUCTURE, new ResourceLocation("true_end:the_dreaming_tree"));
+            ResourceKey.create(Registries.STRUCTURE, TrueEnd.asResource("the_dreaming_tree"));
 
     public DreamersCompass() {
         super(new Properties().stacksTo(1).rarity(Rarity.RARE));
