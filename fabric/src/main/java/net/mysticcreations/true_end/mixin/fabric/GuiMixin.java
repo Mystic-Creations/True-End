@@ -3,21 +3,26 @@ package net.mysticcreations.true_end.mixin.fabric;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import dev.architectury.platform.Platform;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.profiling.ProfilerFiller;
+import net.mysticcreations.true_end.init.TEDimKeys;
+import net.mysticcreations.true_end.client.VersionOverlay;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
-import net.mysticcreations.true_end.client.VersionOverlay;
-import net.mysticcreations.true_end.init.TEDimKeys;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.Stack;
 
 
 @Mixin(Gui.class) // replace with the real class
@@ -37,6 +42,73 @@ public abstract class GuiMixin {
         return -1;
     }
 
+    private Stack<String> currentProfiler = new Stack<>();
+
+    @Redirect(
+            method = "renderPlayerHealth(Lnet/minecraft/client/gui/GuiGraphics;)V",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/util/profiling/ProfilerFiller;push(Ljava/lang/String;)V"
+            )
+    )
+    private void logProfilePushes(ProfilerFiller instance, String name) {
+        currentProfiler.push(name);
+        instance.push(name);
+    }
+
+    @Redirect(
+            method = "renderPlayerHealth(Lnet/minecraft/client/gui/GuiGraphics;)V",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/util/profiling/ProfilerFiller;popPush(Ljava/lang/String;)V"
+            )
+    )
+    private void logProfilePopPushes(ProfilerFiller instance, String name) {
+        currentProfiler.pop();
+        currentProfiler.push(name);
+        instance.pop();
+        instance.push(name);
+    }
+
+    @Redirect(
+            method = "renderPlayerHealth(Lnet/minecraft/client/gui/GuiGraphics;)V",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/util/profiling/ProfilerFiller;pop()V"
+            )
+    )
+    private void logProfilePops(ProfilerFiller instance) {
+        currentProfiler.pop();
+        instance.pop();
+    }
+
+    /**
+     * Redirects every blit call inside renderFood so we can shift x and y.
+     */
+    @Redirect(
+            method = "renderPlayerHealth(Lnet/minecraft/client/gui/GuiGraphics;)V",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/gui/GuiGraphics;blit(Lnet/minecraft/resources/ResourceLocation;IIIIII)V"
+            )
+    )
+    private void redirectBlit(
+            GuiGraphics instance, ResourceLocation atlasLocation, int x, int y, int uOffset, int vOffset, int uWidth, int vHeight
+    ) {
+        if (this.minecraft.player.level().dimension() != TEDimKeys.BTD) {
+            instance.blit(atlasLocation, x,y,uOffset,vOffset, uWidth, vHeight);
+            return;
+        }
+
+        if (this.currentProfiler.peek().equals("armor")) {
+            instance.blit(atlasLocation, x+100,y-6,uOffset,vOffset, uWidth, vHeight);
+        } else if (this.currentProfiler.peek().equals("air")) {
+            instance.blit(atlasLocation, x,y-12,uOffset,vOffset, uWidth, vHeight);
+        } else {
+            instance.blit(atlasLocation, x, y, uOffset, vOffset, uWidth, vHeight);
+        }
+    }
+
     @Inject(at = @At("HEAD"), method = "renderExperienceBar", cancellable = true)
     private void renderExperienceBar(CallbackInfo ci) {
         if (minecraft.player.level().dimension() == TEDimKeys.BTD) {
@@ -50,7 +122,7 @@ public abstract class GuiMixin {
         if (Platform.isModLoaded("nostalgic_tweaks")) {
             return y +7 ;
         } else {
-            return y -12;
+            return y -17;
         }
     }
 
@@ -62,7 +134,7 @@ public abstract class GuiMixin {
     )
     private int modifyBubblesX(int original) {
         if (this.minecraft.player.level().dimension() != TEDimKeys.BTD) {return original;}
-        return original - 101; // shift it down 20 px, or whatever you want
+        return original - 100; // shift it down 20 px
     }
 
     // "ordinal" = which int local to target, since there are multiple ints in the method
@@ -76,21 +148,21 @@ public abstract class GuiMixin {
         if (Platform.isModLoaded("nostalgic_tweaks")) {
             return original;
         } else {
-            return original + 20;  // shift it down 20 px, or whatever you want
+            return original + 24;  // shift it down 20 px
         }
     }
-
-    @Shadow()
-    public abstract Font getFont();
 
     @Shadow
     protected abstract int getVehicleMaxHearts(LivingEntity vehicle);
 
-    @Inject(at = @At("HEAD"), method = "render")
+    /*
+    Version Overlay, Fabric renderer
+     */
+    @Shadow() public abstract Font getFont();
+    @Inject(at = @At("TAIL"), method = "render")
     public void render(GuiGraphics guiGraphics, float partialTick, CallbackInfo ci) {
-
+        if (this.minecraft.player == null) return;
         if (this.minecraft.player.level().dimension() != TEDimKeys.BTD) return;
-
         this.minecraft.getProfiler().push("demo");
         Component component = Component.literal(VersionOverlay.currentText);
 
@@ -107,10 +179,14 @@ public abstract class GuiMixin {
         int drawX = Math.round(x / userScale);
         int drawY = Math.round(y / userScale);
 
+        guiGraphics.pose().pushPose();
+        guiGraphics.pose().scale(1f / guiScaleFactor, 1f / guiScaleFactor, 1f);
+        guiGraphics.pose().scale(userScale, userScale, 1f);
 
-        guiGraphics.drawString(minecraft.font, Component.literal(VersionOverlay.currentText), drawX + 1, drawY + 1, textShadowColor, false);
-        guiGraphics.drawString(minecraft.font, Component.literal(VersionOverlay.currentText), drawX, drawY, textColor, false);
-        this.minecraft.getProfiler().pop();
+        guiGraphics.drawString(minecraft.font, component, drawX + 1, drawY + 1, textShadowColor, false);
+        guiGraphics.drawString(minecraft.font, component, drawX, drawY, textColor, false);
+
+        guiGraphics.pose().popPose();
     }
 
 }
