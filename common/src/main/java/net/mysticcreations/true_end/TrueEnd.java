@@ -51,7 +51,7 @@ public final class TrueEnd {
         TEBlocks.register();
         TEItems.register();
         TECreativeTabs.register();
-        TEParticleTypes.register();
+        TEParticles.registerParticles();
         TEPoiTypes.register();
         TEEntities.register();
         TEScreens.register();
